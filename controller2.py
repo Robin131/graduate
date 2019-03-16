@@ -229,7 +229,7 @@ class Controller(app_manager.RyuApp):
         self.gateway_init_record_hub = hub.spawn(self.gateway_manager.init_gateway_record)
 
         # test hub
-        self.test_hub = hub.spawn(self.test)
+        # self.test_hub = hub.spawn(self.test)
 
     @set_ev_cls(ofp_event.EventOFPStateChange, [MAIN_DISPATCHER, DEAD_DISPATCHER])
     def switch_state_change_handler(self, ev):
