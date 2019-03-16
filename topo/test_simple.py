@@ -20,7 +20,7 @@ if __name__ == "__main__":
     # host
     # tenant 1
     host1 = net.addHost('h1', ip="191.168.1.1", mac='00:00:00:00:00:01')
-    host2 = net.addHost('h2', ip="191.168.1.2", mac='00:00:00:00:00:02')
+    host2 = net.addHost('h2', ip="191.168.1.4", mac='00:00:00:00:00:04')
 
     # switch
     switch1 = net.addSwitch('s1', ip="191.168.2.1", datapath='user')
