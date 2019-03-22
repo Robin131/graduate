@@ -23,7 +23,7 @@ if __name__ == "__main__":
     host1 = net.addHost('h1', ip="191.168.1.1", mac='00:00:00:00:00:01')
     host2 = net.addHost('h2', ip="191.168.1.2", mac='00:00:00:00:00:02')
     host3 = net.addHost('h3', ip="191.168.1.3", mac='00:00:00:00:00:03')
-    host4 = net.addHost('h4', ip="192.168.1.4", mac='00:00:00:00:00:04')
+    host4 = net.addHost('h4', ip="191.168.1.4", mac='00:00:00:00:00:04')
     host5 = net.addHost('h5', ip="191.168.1.4", mac='00:00:00:00:00:05')
     host6 = net.addHost('h6', ip="191.168.1.6", mac='00:00:00:00:00:09')
 
