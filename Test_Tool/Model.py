@@ -507,7 +507,7 @@ class Network(object):
             net.addSwitch(s.name, ip=str(s.ip), mac=s.mac)
 
         # add link for switches and hosts
-        for edge in dc.dc_topo.edges:
+        for edge in dc.dc_topo.graph.edges:
             net.addLink(edge[0].name, edge[1].name, cls=link_type)
 
         net.start()
