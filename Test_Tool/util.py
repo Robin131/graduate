@@ -1,4 +1,4 @@
-
+import cPickle as pickle
 
 # generate a mac address list with len of MAX_MAC_NUM
 def generate_MACs(max_mac_num):
@@ -37,3 +37,15 @@ def generate_host_name(tenant_id, host_id, pre_name='h'):
 
 def generate_switch_name(dc_id, switch_id, pre_name='s'):
     return generate_device_name(dc_id, switch_id, pre_name)
+
+def generate_gateway_name(dc_id, gateway_id, pre_name='g'):
+    return generate_device_name(dc_id, gateway_id, pre_name)
+
+# TODO build an ip pool
+def generate_ip_4_gateway(dc_id, gateway_id):
+    return '110.111.' + str(dc_id) + '.' + str(gateway_id)
+
+def save_dict(dict, file_path):
+    with open(file_path, "wb") as f:
+        pickle.dump(dict, f)
+        f.close()

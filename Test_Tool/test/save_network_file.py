@@ -1,6 +1,6 @@
-from Model import Network
-from Model import SMALL_SCALE, MEDIUM_SCALE, LARGE_SCALE
-from Model import HIGH_PRIORITY, LOW_PRIORITY
+from Test_Tool.Model import Network
+from Test_Tool.Model import SMALL_SCALE, MEDIUM_SCALE, LARGE_SCALE
+from Test_Tool.Model import HIGH_PRIORITY, LOW_PRIORITY
 
 from IPy import IP
 

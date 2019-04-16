@@ -12,6 +12,7 @@ class DC_Topo(object):
         self.graph = nx.Graph()
         self.hosts = []
         self.switches = []
+        self.gateways = []
 
     # show how switches and hosts connect with others
     def show_structrue(self):
@@ -30,7 +31,7 @@ class DC_Topo(object):
             print('\n')
 
 class FatTreeTopo(DC_Topo):
-    def __init__(self,switches, hosts):
+    def __init__(self,switches, hosts, gateways):
         super(FatTreeTopo, self).__init__()
 
         self.pod = 0
@@ -41,6 +42,7 @@ class FatTreeTopo(DC_Topo):
 
         self.switches = switches
         self.hosts = hosts
+        self.gateways = gateways
 
         self.core_switch = []
         self.aggre_switch = []
@@ -111,6 +113,11 @@ class FatTreeTopo(DC_Topo):
                     hosts[h_index],
                     self.edge_switch[i]
                 )
+
+        # connect gateways
+        for s in self.switches:
+            for g in self.gateways:
+                self.graph.add_edge(s, g)
         return
 
 
@@ -159,8 +166,10 @@ class FullMeshTopo(DC_Topo):
                     self.graph.add_edge(s, hosts[h_index])
                 i += 1
 
-        # if switches[0].dc_id == 1:
-        #     self.show_structrue()
+        # connect gateways
+        for s in self.switches:
+            for g in self.gateways:
+                self.graph.add_edge(s, g)
 
         return
 
