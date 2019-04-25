@@ -22,6 +22,23 @@ class Device(object):
     def __str__(self):
         return 'id: %d, ip:%s, mac: %s, dc_id: %d'%(
             self.id, str(self.ip), self.mac, self.dc_id)
+'''
+    连通型设备
+'''
+class ConnectDevice(Device):
+    def __init__(self, name, id, ip, mac, dc_id):
+        super(ConnectDevice, self).__init__(name, id, ip, mac, dc_id)
+
+        self.current_port = 1
+        self.inner_ports = {}       # port_id -> (device, bandwidth)
+        self.connected_device = []
+
+    def add_inner_connect(self, device, bw=0):
+        if device.name in self.connected_device:
+            return
+        self.inner_ports[self.current_port] = (device, bw)
+        self.current_port += 1
+        self.connected_device.append(device.name)
 
 '''
     Host类
@@ -43,9 +60,10 @@ class Host(Device):
     Switch类
 '''
 # TODO 交换机端口信息是否要存储？
-class Switch(Device):
+class Switch(ConnectDevice):
     def __init__(self, name, id, ip, mac, dc_id):
         super(Switch, self).__init__(name, id, ip, mac, dc_id)
+        self.dpid = -1
 
 '''
     Gateway class
@@ -55,5 +73,24 @@ class Switch(Device):
 class Gateway(Switch):
     def __init__(self, name, id, ip, mac, dc_id):
         super(Gateway, self).__init__(name, id, ip, mac, dc_id)
-        self.neighbor = {}
 
+        self.outer_ports = {}  # port_id -> (device, datacenter)
+
+    def add_outer_connect(self, device, dc):
+        if device.name in self.connected_device:
+            return
+        self.outer_ports[self.current_port] = (device, dc)
+        self.current_port += 1
+        self.connected_device.append(device)
+
+    # 返回连接某一数据中心的端口以及远端的gateway dpid
+    # return port_no, peer_dpid
+    def get_peer_with_remote_dc_id(self, dc_id):
+        if dc_id == self.dc_id:
+            return -1, -1
+        for port_no, val in self.outer_ports.items():
+            dc = val[1]
+            if dc_id != dc.datacenter_id:
+                continue
+            remote_g = val[0]
+            return port_no, remote_g.dpid

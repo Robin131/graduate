@@ -2,9 +2,10 @@
 
 from math import ceil
 
-from Util import Util
+from AutoTest.Model.Util import Util
 from Device import Switch, Gateway
 from Topo import FatTreeTopo, FullMeshTopo
+from Errors import Errors
 
 '''
     Datacenter class
@@ -24,6 +25,9 @@ class Datacenter(object):
         self.topo_conf = None
         self.dc_topo = None
         self.gateway_density = 0
+        self.switch_density = 0
+        self.subnets = []
+        self.current_dpid = 1
 
     def __str__(self):
         res = 'Datacenter: %d\n tenant: [' %(self.datacenter_id)
@@ -34,9 +38,9 @@ class Datacenter(object):
     '''
         methods to generate components
     '''
-    def gen_switches(self):
+    def gen_switch(self):
         topo_type = self.topo_conf[0]
-        density = self.topo_conf[1]
+        density = self.topo_conf[1]         # 若拓扑类型为fattree，可指定密度，否则无效
         # only generate switches without generate topo
         if topo_type == 'fattree':
             # calculate num of swithces
@@ -48,26 +52,39 @@ class Datacenter(object):
                 pod_num += 1
             switch_num = int(pod_num * pod_num * 5 / 4)
             for i in range(switch_num):
-                switch_name = Util.generate_switch_name(self.datacenter_id, i)
+                switch_name = Util.generate_switch_name(self.datacenter_id, i+1)
                 ip = self.get_usable_switch_ip()
                 mac = self.mac_pool.get()
-                switch = Switch(name=switch_name, id=i, ip=ip, mac=mac, dc_id=self.datacenter_id)
+                switch = Switch(name=switch_name, id=i+1, ip=ip, mac=mac, dc_id=self.datacenter_id)
                 self.switches.append(switch)
             return
         elif topo_type == 'fullmesh':
+            if self.switch_density != density:
+                raise Errors.host_switch_conflict
             host_num = len(self.hosts)
             switch_num = int(ceil(float(host_num) / density))
             for i in range(switch_num):
-                switch_name = Util.generate_switch_name(self.datacenter_id, i)
+                switch_name = Util.generate_switch_name(self.datacenter_id, i+1)
                 ip = self.get_usable_switch_ip()
                 mac = self.mac_pool.get()
-                switch = Switch(name=switch_name, id=i, ip=ip, mac=mac, dc_id=self.datacenter_id)
+                switch = Switch(name=switch_name, id=i+1, ip=ip, mac=mac, dc_id=self.datacenter_id)
                 self.switches.append(switch)
             return
+        else:
+            raise Errors.unknown_topo_type
+
+    def allocate_dpid(self):
+        for s in self.switches:
+            s.dpid = self.current_dpid
+            self.current_dpid += 1
+        for g in self.gateways:
+            g.dpid = self.current_dpid
+            self.current_dpid += 1
+        return
 
     def gen_gateways(self):
-        assert len(self.switches) != 0
-        num = int(ceil(len(self.switches) / self.gateway_density))
+        assert len(self.hosts) != 0
+        num = int(ceil(len(self.hosts) / float(self.gateway_density)))
         for i in range(num):
             name = Util.generate_gateway_name(self.datacenter_id, i)
             ip = self.get_usable_gateway_ip()
@@ -82,27 +99,49 @@ class Datacenter(object):
     def gen_topo(self):
         if self.topo_conf[0] == 'fattree':
             self.create_fattree_topo()
-        elif self.topo_conf[1] == 'fullmesh':
+        elif self.topo_conf[0] == 'fullmesh':
             self.create_full_mesh_topo()
         else:
             return
 
     def create_fattree_topo(self):
-        self.dc_topo = FatTreeTopo(self.switches, self.hosts)
+        self.dc_topo = FatTreeTopo(self.hosts, self.switches, self.gateways)
         self.dc_topo.create_fattree_topo(bw={})
 
-    def create_full_mesh_topo(self, density):
-        self.dc_topo = FullMeshTopo(self.switches, self.hosts, density)
-        self.dc_topo.create_full_mesh_topo()
+    def create_full_mesh_topo(self):
+        density = self.switch_density
+        self.dc_topo = FullMeshTopo(self.hosts, self.switches, self.gateways, density)
+        self.dc_topo.create_full_mesh_topo(bw={})
 
     '''
         methods to get components or relationship
     '''
-    def get_tenant_arp_table(self):
+    def get_arp_table(self):
+        return {h.ip: h.mac for h in self.hosts}
+
+    def get_mac_tenant_table(self):
         res = {}
+        for h in self.hosts:
+            res[h.mac] = h.t_id
+        return res
+
+    # tenant_id -> priority
+    def get_tenant_priority(self):
+        dict = {}
         for t in self.tenants:
-            tenant_arp_table = t.get_arp_table()
-            res[t.tenant_id] = tenant_arp_table
+            dict[t.tenant_id] = t.priority
+        return dict
+
+    def get_gateway_ips(self):
+        return [self.gateway_ip_pool.get_with_index(0)]
+
+    def get_potential_gateway(self):
+        res = {}
+        for g in self.gateways:
+            dpid = g.dpid
+            for port_no, val in g.outer_ports.items():
+                dc_id = val[1].datacenter_id
+                res[dpid] = {dc_id: port_no}
         return res
 
     '''

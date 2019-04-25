@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
-import cPickle as pickle
 
-from Errors import Errors
+from AutoTest.Model.Errors import Errors
 
 class Pool(object):
     def __init__(self, pool):

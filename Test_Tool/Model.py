@@ -536,11 +536,9 @@ class Network(object):
     def all_subnet(self):
         return [str(ip) for ip in self.alter_IP]
 
-
+    # TODO 将网络参数写入文件
     def save_records(self):
-
-
-
+        return
 
     '''
         methods to setup network with Mininet
