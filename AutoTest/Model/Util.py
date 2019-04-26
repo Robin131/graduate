@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 
 from AutoTest.Model.Errors import Errors
+from AutoTest.Model.const import LinkType, LinkBandWidth
+from AutoTest.Model.Device import Host, Switch, Gateway
 
 class Pool(object):
     def __init__(self, pool):
@@ -103,3 +105,54 @@ class Util(object):
     def generate_gateway_name(dc_id, gateway_id, pre_name='g'):
         return Util.generate_device_name(dc_id, gateway_id, pre_name)
 
+    @staticmethod
+    def dpid_num_2_dpid_hex(dpid_num):
+        h = str(hex(dpid_num))
+        h = h[2:]
+        return h.upper()
+
+    @staticmethod
+    def get_link_type(node1, node2):
+        # 如果存在一个host
+        if isinstance(node1, Host):
+            if isinstance(node2, Host):
+                raise Errors.host_host_link
+            elif isinstance(node2, Switch):
+                return LinkType.hs_link
+            elif isinstance(node2, Gateway):
+                return Errors.host_gateway_link
+            else:
+                print('============= 你不应该到达这里')
+        elif isinstance(node1, Switch):
+            if isinstance(node2, Host):
+                return LinkType.hs_link
+            elif isinstance(node2, Switch):
+                return LinkType.ss_link
+            elif isinstance(node2, Gateway):
+                return LinkType.gs_link
+            else:
+                print('============= 你不应该到达这里')
+        elif isinstance(node1, Gateway):
+            if isinstance(node2, Host):
+                return Errors.host_gateway_link
+            elif isinstance(node2, Switch):
+                return LinkType.gs_link
+            elif isinstance(node2, Gateway):
+                return LinkType.gg_link
+            else:
+                print('============= 你不应该到达这里')
+        else:
+            print('============= 你不应该到达这里')
+
+    @ staticmethod
+    def get_bandwidth_with_link_type(link_type):
+        if link_type == LinkType.hs_link:
+            bw = LinkBandWidth.host_switch_bw
+        elif link_type == LinkType.ss_link:
+            bw = LinkBandWidth.switch_switch_bw
+        elif link_type == LinkType.gs_link:
+            bw = LinkBandWidth.gateway_switch_bw
+        elif link_type == LinkType.gg_link:
+            bw = LinkBandWidth.gateway_gateway_bw
+        else:
+            bw = LinkBandWidth.nat_gateway_bw

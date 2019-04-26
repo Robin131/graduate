@@ -1,12 +1,15 @@
 # -*- coding:utf-8 -*-
 import json
+import cPickle as pickle
 
-from Errors import Errors
-from Datacenter import Datacenter
-from Tenant import Tenant
+from AutoTest.Model.Errors import Errors
+from AutoTest.Model.Datacenter import Datacenter
+from AutoTest.Model.Tenant import Tenant
 from AutoTest.Model.Util import Pool, Util
-from const import TenantPriority
+from AutoTest.Model.const import TenantPriority
+from AutoTest.Model.NetSimulator import MininetSimulator
 
+pickle_file = '../Data/network.pkl'
 
 
 '''
@@ -27,6 +30,7 @@ class Network(object):
         self.conf_file = conf
         self.conf_dic = {}
         self.init()
+
 
     def read_conf(self):
         file = open(self.conf_file, 'r')
@@ -51,13 +55,9 @@ class Network(object):
         self.allocate_dpid()
 
         # print(len(self.datacenters[1].gateways))
-
-        print(self.get_dc_statistics())
-
-        dc_config = self.dc_config_info()
-        print(dc_config)
-
-        # self.set_up_mininet()
+        # print(self.get_dc_statistics())
+        # dc_config = self.dc_config_info()
+        # print(dc_config)
 
     def gen_datacenters(self):
         if self.conf_dic == {}:
@@ -189,9 +189,14 @@ class Network(object):
             dc.allocate_dpid()
         return
 
-    # TODO 建立mininet仿真
-    def set_up_mininet(self):
-
+    '''
+        建立mininet仿真
+        需要输入本数据中心的id（需要在本地恢复Network配置后调用）
+    '''
+    def set_up_mininet(self, dc_id):
+        topo = self.datacenters[dc_id].dc_topo
+        simulator = MininetSimulator(topo)
+        simulator.simulate()
         return
 
 
@@ -246,6 +251,12 @@ class Network(object):
                 gateway[dpid] = peers
             res[dc_id1] = gateway
         return res
+
+    # 将Network进行保存
+    def save(self):
+        with open(pickle_file, "wb") as f:
+            pickle.dump(self, f)
+            f.close()
 
     # TODO 获取dc统计数量，用于debug
     def get_dc_statistics(self):

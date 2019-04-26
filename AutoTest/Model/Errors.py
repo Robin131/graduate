@@ -25,3 +25,5 @@ class Errors(object):
     conf_no_hosts_per_gateway =                         BaseError(13, '缺少网关 - 主机密度配置信息')
     conf_no_gateway_ip =                                BaseError(14, '缺少网关ip配置信息')
     host_switch_conflict =                              BaseError(15, '拓扑中设置的密度与外层配置冲突')
+    host_host_link =                                    BaseError(16, 'Host间建立了连接')
+    host_gateway_link =                                 BaseError(17, 'Host与Gateway间jianlile')

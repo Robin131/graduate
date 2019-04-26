@@ -40,6 +40,13 @@ class ConnectDevice(Device):
         self.current_port += 1
         self.connected_device.append(device.name)
 
+    def get_inner_port_no_with_device(self, device):
+        for port_no, val in self.inner_ports:
+            if device.equals(val[0]):
+                return port_no, val[1]
+            continue
+        return -1, -1
+
 '''
     Host类
 '''
