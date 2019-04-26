@@ -1,3 +1,6 @@
+import sys
+
+
 from AutoTest.Model.Network import Network
 
 conf_file = '../config/net.json'
