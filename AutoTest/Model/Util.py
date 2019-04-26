@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 
-from AutoTest.Model.Errors import Errors
-from AutoTest.Model.const import LinkType, LinkBandWidth
-from AutoTest.Model.Device import Host, Switch, Gateway
+from Errors import Errors
+from const import LinkType, LinkBandWidth
+from Device import Host, Switch, Gateway
 
 class Pool(object):
     def __init__(self, pool):

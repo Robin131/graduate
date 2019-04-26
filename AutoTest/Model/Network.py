@@ -1,13 +1,15 @@
 # -*- coding:utf-8 -*-
 import json
 import cPickle as pickle
+import sys
 
-from AutoTest.Model.Errors import Errors
-from AutoTest.Model.Datacenter import Datacenter
-from AutoTest.Model.Tenant import Tenant
-from AutoTest.Model.Util import Pool, Util
-from AutoTest.Model.const import TenantPriority
-from AutoTest.Model.NetSimulator import MininetSimulator
+
+from Errors import Errors
+from Datacenter import Datacenter
+from Tenant import Tenant
+from Util import Pool, Util
+from const import TenantPriority
+from NetSimulator import MininetSimulator
 
 pickle_file = '../Data/network.pkl'
 

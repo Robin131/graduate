@@ -2,10 +2,6 @@
 import abc
 import networkx as nx
 
-from AutoTest.Model.const import LinkBandWidth, LinkType
-from AutoTest.Model.Util import Util
-from AutoTest.Model.Device import Host, Switch, Gateway
-
 # mininet simulator
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info,error
@@ -13,6 +9,9 @@ from mininet.net import Mininet
 from mininet.node import RemoteController, OVSSwitch
 from mininet.link import TCLink
 
+from const import LinkBandWidth, LinkType
+from Util import Util
+from Device import Host, Switch, Gateway
 
 '''
     仿真网络层

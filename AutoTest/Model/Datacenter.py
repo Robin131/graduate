@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
+import sys
 
 from math import ceil
 
-from AutoTest.Model.Util import Util
+from Util import Util
 from Device import Switch, Gateway
 from Topo import FatTreeTopo, FullMeshTopo
 from Errors import Errors
