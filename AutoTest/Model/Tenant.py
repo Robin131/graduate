@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 from random import sample
 
-from AutoTest.Model.Util import Pool, Util
+from Util import Pool, Util
 from Device import Host
 
 '''
