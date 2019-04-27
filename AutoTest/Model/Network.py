@@ -12,7 +12,7 @@ from const import TenantPriority
 from NetSimulator import MininetSimulator
 
 pickle_file = '../Data/network.pkl'
-
+config_dic = '../Data/config.pkl'
 
 '''
     Network class
@@ -256,11 +256,15 @@ class Network(object):
             res[dc_id1] = gateway
         return res
 
-    # 将Network进行保存
+    # 将Network以及配置文件进行保存
     def save(self):
         with open(pickle_file, "wb") as f:
             pickle.dump(self, f)
             f.close()
+        with open(config_dic, "wb") as f:
+            pickle.dump(self.dc_config_info(), f)
+            f.close()
+        return
 
     # TODO 获取dc统计数量，用于debug
     def get_dc_statistics(self):

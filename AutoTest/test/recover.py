@@ -2,7 +2,7 @@ import cPickle as pickle
 import sys
 sys.path.append('../..')
 
-from AutoTest.Model.Network import pickle_file
+from AutoTest.Model.Network import pickle_file, config_dic
 
 
 if __name__ == '__main__':
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     network.set_up_mininet(this_dc)
 
 
-    #dc = network.datacenters[this_dc]
-    #for s in dc.switches:
+    # dc = network.datacenters[this_dc]
+    # for s in dc.switches:
     #    if s.name == 's00100004':
     #        s.show_inner_ports()
