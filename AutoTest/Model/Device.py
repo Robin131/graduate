@@ -47,6 +47,11 @@ class ConnectDevice(Device):
             continue
         return -1, -1
 
+    def show_inner_ports(self):
+        print(self.name)
+        for port_id, val in self.inner_ports:
+            print({port_id: (val[0].name, val[1])})
+
 '''
     Host类
 '''
