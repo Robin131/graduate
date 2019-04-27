@@ -57,7 +57,7 @@ class MininetSimulator(NetSimulator):
         for h in hosts:
             net.addHost(h.name, ip=h.ip, mac=h.mac)
         for s in switches:
-            net.addSwitch(s.name, ip=s.ip, mac=s.mac, datapath='user')
+            net.addSwitch(s.name, ip=s.ip, mac=s.mac, dpid=Util.dpid_num_2_dpid_hex(s.dpid), datapath='user')
         for g in gateways:
             net.addSwitch(g.name, ip=g.ip, dpid=Util.dpid_num_2_dpid_hex(g.dpid))
 
