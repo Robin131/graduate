@@ -87,10 +87,11 @@ class Datacenter(object):
         assert len(self.hosts) != 0
         num = int(ceil(len(self.hosts) / float(self.gateway_density)))
         for i in range(num):
-            name = Util.generate_gateway_name(self.datacenter_id, i)
+            g_id = i + 1
+            name = Util.generate_gateway_name(self.datacenter_id, g_id)
             ip = self.get_usable_gateway_ip()
             mac = self.mac_pool.get()
-            g = Gateway(name=name, id=i, ip=ip, mac=mac, dc_id=self.datacenter_id)
+            g = Gateway(name=name, id=g_id, ip=ip, mac=mac, dc_id=self.datacenter_id)
             self.gateways.append(g)
         return
 
