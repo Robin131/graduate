@@ -1,8 +1,9 @@
 import cPickle as pickle
 import sys
-sys.path.append('..')
+sys.path.append('../..')
 
-from Model.Network import pickle_file
+from AutoTest.\
+    Model.Network import pickle_file
 
 
 if __name__ == '__main__':
