@@ -196,6 +196,8 @@ class Network(object):
         需要输入本数据中心的id（需要在本地恢复Network配置后调用）
     '''
     def set_up_mininet(self, dc_id):
+        if dc_id not in self.datacenters.keys():
+            raise Errors.datacenter_id_not_covered
         topo = self.datacenters[dc_id].dc_topo
         simulator = MininetSimulator(topo)
         simulator.simulate()
