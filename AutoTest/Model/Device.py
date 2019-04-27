@@ -49,7 +49,7 @@ class ConnectDevice(Device):
 
     def show_inner_ports(self):
         print(self.name)
-        for port_id, val in self.inner_ports:
+        for port_id, val in self.inner_ports.items():
             print({port_id: (val[0].name, val[1])})
 
 '''
