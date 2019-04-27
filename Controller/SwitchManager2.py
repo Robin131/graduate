@@ -60,10 +60,12 @@ class SwitchManager(object):
         self.dpid_to_ports[dpid] = ports
 
         # choose datatcenter_id according to dpid
-        if dpid == 1 or dpid == 2 or dpid == 3 or dpid == 10 or dpid == 11 or dpid == 12:
-            datacenter_id = 1
-        else:
-            datacenter_id = 2
+        # if dpid == 1 or dpid == 2 or dpid == 3 or dpid == 10 or dpid == 11 or dpid == 12:
+        #     datacenter_id = 1
+        # else:
+        #     datacenter_id = 2
+        # TODO only for datacenter 1 right now
+        datacenter_id = 1
         vmac = MacManager.get_vmac_new_switch(dpid=dpid, datacenter_id=datacenter_id)
         self.dpid_to_vmac[dpid] = vmac
         self.lldp_manager.lldp_detect(datapath)

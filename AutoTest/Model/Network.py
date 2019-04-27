@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 import json
 import cPickle as pickle
-import sys
 
 
 from Errors import Errors

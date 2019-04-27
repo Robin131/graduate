@@ -22,6 +22,7 @@ from FlowManager2 import FlowManager
 from GatewayManager2 import GatewayManager
 from MeterManager2 import MeterModifier
 from Util2 import Util
+from Cofiguration import DictionaryConfiguration
 
 class Controller(app_manager.RyuApp):
 
@@ -41,100 +42,41 @@ class Controller(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(Controller, self).__init__(*args, **kwargs)
 
+        self.this_dc_id = 1
+        conf = DictionaryConfiguration(self.this_dc_id)
+
         # configurations for the system
         # arp table for different tenants
-        self.arp_table = {  # {tenant_id ->{ip -> mac}}
-            1:
-                {
-                    # d1
-                    '191.168.1.1': '00:00:00:00:00:01',
-                    '191.168.1.4': '00:00:00:00:00:04',
-                    '191.168.1.6': '00:00:00:00:00:06',
-                    '191.168.111.1': '10:00:00:00:00:00',
-                    # d2
-                    '191.168.2.1': '00:00:00:00:00:21',
-                },
-
-            2:
-                {
-                    # d1
-                    '191.168.1.3': '00:00:00:00:00:03',
-                    '191.168.1.2': '00:00:00:00:00:02',
-                    '191.168.1.5': '00:00:00:00:00:05',
-                    '191.168.1.7': '00:00:00:00:00:07',
-                    # d2
-                    '191.168.2.2': '00:00:00:00:00:22'
-                }
-        }
+        self.arp_table = conf.arp_table
 
         # pmac -> tenant_id
-        self.host_pmac = {
-            '00:00:00:00:00:01': 1,
-            '00:00:00:00:00:02': 2,
-            '00:00:00:00:00:03': 2,
-            '00:00:00:00:00:04': 1,
-            '00:00:00:00:00:05': 2,
-            '00:00:00:00:00:06': 1,
-            '10:00:00:00:00:00': 1,
-            '00:00:00:00:00:21': 1,
-            '00:00:00:00:00:07': 2,
-            '00:00:00:00:00:22': 2
-        }
+        self.host_pmac = conf.host_pmac
 
         # tenant_id -> tenant_level
-        self.tenant_level = {
-            1: 2,
-            2: 1
-        }
+        self.tenant_level = conf.tenant_level
 
         # record all potential subnet
-        self.subnets = [
-            '191.0.0.0/8',
-            '192.0.0.0/8',
-            '10.0.0.0/8'
-        ]
+        self.subnets = conf.subnets
 
         # record all potential gateway
         # 'NAT' : port_no
         # datacenter_id : port_no
-        self.potential_gateway = {
-            10 : {2:6},
-            11 : {2:6},
-            12 : {2:6},
-            13 : {1:5},
-            14 : {1:5},
-            15 : {1:5}
-
-        }
+        self.potential_gateway = conf.potential_gateway
 
         # remote datacenter_id -> {dpid -> peer}
         # if there is no peer, then peer is -1
-        self.gateways_datacenter_port = {
-            2: {
-                10: -1,
-                11: 12,
-                12: 11
-            }
-        }
+        self.gateways_datacenter_port = conf.gateway_datacenter_port
 
         # record all potential gateway_ip
         # datacenter_id -> [gateway_ip]
-        self.gateway_ip = [
-            '191.0.0.1'
-        ]
+        self.gateway_ip = conf.gateway_ip
 
         # record speed for tenant
         # tenant_id -> speed
-        self.tenant_speed = {
-            # 1: 1024 * 1,
-            # 2: 1024 * 1
-        }
+        self.tenant_speed = conf.tenant_speed
 
         # record all datacenter_id
-        self.all_datacenter_id = [
-            1,
-            2
-        ]
+        self.all_datacenter_id = conf.all_datacenter_id
 
 
         # record for system
@@ -223,10 +165,10 @@ class Controller(app_manager.RyuApp):
 
         # hub
         self.init_hub = hub.spawn(self.init_controller)
-        self.gateway_statistics_inquiry_hub = hub.spawn(self.gateway_manager.inquiry_gateway_flow_table_info)
-        self.gateways_datacenter_port_hub = hub.spawn(self.gateway_manager.inquiry_gateway_datacenter_port)
+        # self.gateway_statistics_inquiry_hub = hub.spawn(self.gateway_manager.inquiry_gateway_flow_table_info)
+        # self.gateways_datacenter_port_hub = hub.spawn(self.gateway_manager.inquiry_gateway_datacenter_port)
         # self.gateway_banlance_hub = hub.spawn(self.gateway_manager.gateway_balance_hub)
-        self.gateway_init_record_hub = hub.spawn(self.gateway_manager.init_gateway_record)
+        # self.gateway_init_record_hub = hub.spawn(self.gateway_manager.init_gateway_record)
 
         # test hub
         # self.test_hub = hub.spawn(self.test)
@@ -431,7 +373,7 @@ class Controller(app_manager.RyuApp):
                     FlowManager.install_statistics_flow(self.datapathes[gw_id], dpids, this_datacenter_id, self.all_datacenter_id)
 
         # init record for gateway
-        self.gateway_manager.init_gateway_record()
+        # self.gateway_manager.init_gateway_record()
 
 
 

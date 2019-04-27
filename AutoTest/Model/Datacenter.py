@@ -119,7 +119,13 @@ class Datacenter(object):
         methods to get components or relationship
     '''
     def get_arp_table(self):
-        return {h.ip: h.mac for h in self.hosts}
+        res = {}
+        for t in self.tenants:
+            res[t.tenant_id] = {}
+        for h in self.hosts:
+            tenant_id = h.t_id
+            res[tenant_id][h.ip] = h.mac
+        return res
 
     def get_mac_tenant_table(self):
         res = {}
