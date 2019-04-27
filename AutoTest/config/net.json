@@ -9,7 +9,7 @@
     },
     "tenant": {
         "1": {
-                "host_num": 270,
+                "host_num": 10,
                 "priority": "HIGH",
                 "alter_ip": [
                     1, 2
@@ -19,7 +19,7 @@
                 ]
            },
         "2": {
-                "host_num": 200,
+                "host_num": 10,
                 "priority": "LOW",
                 "alter_ip": [
                     2
@@ -29,10 +29,10 @@
                 ]
            }
     },
-    "topo_type": ["fullmesh", 30],
+    "topo_type": ["fullmesh", 33],
     "mac_num": 3000,
-    "hosts_per_gateway": 100,
-    "hosts_per_switch": 30,
+    "hosts_per_gateway": 5,
+    "hosts_per_switch": 3,
     "switch_ip": "131.0.0.0/16",
     "gateway_ip": "132.0.0.0/16"
 }
