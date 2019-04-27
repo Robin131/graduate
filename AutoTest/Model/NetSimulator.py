@@ -75,9 +75,6 @@ class MininetSimulator(NetSimulator):
         node2 = edge[1]
 
         link_type = Util.get_link_type(node1, node2)
-        g = self.topo.graph
-        bw = nx.get_edge_attributes(g, 'bw')
-        ports = nx.get_edge_attributes(g, 'port')
 
         if link_type == LinkType.hs_link:
             if isinstance(node2, Switch):
@@ -91,20 +88,20 @@ class MininetSimulator(NetSimulator):
             return
 
         if link_type == LinkType.ss_link or link_type == LinkType.gs_link or link_type == LinkType.gg_link:
-            port = ports[node1, node2]
-            node1_port = port[node1.name]
-            node2_port = port[node2.name]
-            link_bw = bw[node1, node2]
 
-            if link_bw == 0:
+            node1_port, bw = node1.get_inner_port_no_with_device(node2)
+            node2_port, bw = node2.get_inner_port_no_with_device(node1)
+
+            if bw == 0:
                 if link_type == LinkType.ss_link:
-                    link_bw = LinkBandWidth.switch_switch_bw
+                    bw = LinkBandWidth.switch_switch_bw
                 elif link_type == LinkType.gs_link:
-                    link_bw = LinkBandWidth.gateway_switch_bw
+                    bw = LinkBandWidth.gateway_switch_bw
                 elif link_type == LinkType.gg_link:
-                    link_bw = LinkBandWidth.gateway_gateway_bw
+                    bw = LinkBandWidth.gateway_gateway_bw
 
-            self.net.addLink(node1.name, node2.name, node1_port, node2_port, cls=self.link_type, bw=link_bw)
+            print('{} -- {} with port {} -- {}'.format(node1.name, node2.name, node1_port, node2_port))
+            self.net.addLink(node1.name, node2.name, node1_port, node2_port, cls=self.link_type, bw=bw)
             return
 
         # TODO 增加NAT连接

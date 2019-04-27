@@ -10,8 +10,10 @@ if __name__ == '__main__':
     with open(pickle_file, "rb") as f:
         network = pickle.load(f)
 
-    dc = network.datacenters[this_dc]
-    for s in dc.switches:
-        if s.name == 's00100006' or s.name == 's00100001':
-            s.show_inner_ports()
+    network.set_up_mininet(this_dc)
 
+
+    #dc = network.datacenters[this_dc]
+    #for s in dc.switches:
+    #    if s.name == 's00100004':
+    #        s.show_inner_ports()
