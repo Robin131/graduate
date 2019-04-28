@@ -1,12 +1,17 @@
 # -*- coding:utf-8 -*-
 import sys
-
+import cPickle as pickle
 from math import ceil
 
 from Util import Util
 from Device import Switch, Gateway
 from Topo import FatTreeTopo, FullMeshTopo
 from Errors import Errors
+from Flow import LognormFlowGenerator
+
+flow_record = lambda i: '../Data/flow{}.pkl'.format(i)
+flow_seq = lambda i: '../Data/flow{}.pkl'.format(i)
+
 
 '''
     Datacenter class
@@ -29,6 +34,7 @@ class Datacenter(object):
         self.switch_density = 0
         self.subnets = []
         self.current_dpid = 1
+        self.flow_simulator = None
 
     def __str__(self):
         res = 'Datacenter: %d\n tenant: [' %(self.datacenter_id)
@@ -93,6 +99,22 @@ class Datacenter(object):
             mac = self.mac_pool.get()
             g = Gateway(name=name, id=g_id, ip=ip, mac=mac, dc_id=self.datacenter_id)
             self.gateways.append(g)
+        return
+
+    # 生成数据流记录文件
+    # TODO 加入外部流量的仿真
+    def generate_flow(self, minute=1):
+        self.flow_simulator = LognormFlowGenerator(self)
+        simulator = self.flow_simulator
+        for i in xrange(minute):
+            flows, flow_seq = simulator.generate_inner_flow_per_min()
+            with open(flow_record(i), "wb") as f:
+                pickle.dump(flows, f)
+                f.close()
+            with open(flow_seq, "wb") as f:
+                pickle.dump(flow_seq, f)
+                f.close()
+
         return
 
     '''

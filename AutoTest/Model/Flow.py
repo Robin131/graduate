@@ -160,11 +160,16 @@ class LognormFlowGenerator(FlowGenerator):
         percent = [percent_per_unit] * 60
         return percent
 
+    # TODO 通过概率分布得到一分钟内的流个数
+    def generate_inner_flow_num_per_min(self):
+        flow_per_min = self.flow_per_host_per_min * len(self.hosts)
+        return ceil(flow_per_min * self.inner_percent)
+
     # 生成一分钟的内部流量
     def generate_inner_flow(self):
         flow_per_min = self.flow_per_host_per_min * len(self.hosts)
         # 每分钟的内部流量总数
-        inner_flow_per_min = ceil(flow_per_min * self.inner_percent)
+        inner_flow_per_min = self.generate_inner_flow_num_per_min()
 
         percents = self.generate_percent_per_time_unit()
 

@@ -190,6 +190,7 @@ class Network(object):
             dc.allocate_dpid()
         return
 
+
     '''
         建立mininet仿真
         需要输入本数据中心的id（需要在本地恢复Network配置后调用）
@@ -202,6 +203,13 @@ class Network(object):
         simulator.simulate()
         return
 
+    # 为某个数据中心生成仿真的数据流记录
+    def generate_flow(self, dc_id, minute=1):
+        if dc_id not in self.datacenters.keys():
+            raise Errors.datacenter_id_not_covered
+        dc = self.datacenters[dc_id]
+        dc.generate_flow(minute=1)
+        return
 
 
     '''

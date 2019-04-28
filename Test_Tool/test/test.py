@@ -1,10 +1,6 @@
 
 from random import choice
 
-duration = 60
-unit = 1
+flow_record = lambda i: '../Data/flow{}.pkl'.format(i)
 
-percent_per_unit = 1.0 / duration
-percent = [percent_per_unit] * 60
-
-print percent
+print flow_record(1)

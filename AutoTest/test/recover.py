@@ -11,7 +11,9 @@ if __name__ == '__main__':
         network = pickle.load(f)
         f.close()
 
+    minute = 1
 
+    network.generate_flow(dc_id=this_dc, minute=minute)
     network.set_up_mininet(this_dc)
 
 
