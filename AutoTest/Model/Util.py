@@ -156,3 +156,17 @@ class Util(object):
             bw = LinkBandWidth.gateway_gateway_bw
         else:
             bw = LinkBandWidth.nat_gateway_bw
+
+    @staticmethod
+    def is_in_subnet(ip, subnet):
+        ip_part = ip.split('.')
+        _ = subnet.split('/')
+        sub_ip, mask = _[0], _[1]
+        subnet_part = sub_ip.split('.')
+        mask = int(mask) / 4
+        same_digit = 4 - mask
+
+        same = True
+        for i in xrange(same_digit):
+            same = same and ip_part[i] == subnet_part[i]
+        return same

@@ -20,3 +20,20 @@ class LinkType(object):
     gs_link = 3
     ng_link = 4
     gg_link = 5
+
+class SimulateModelType(object):
+    LOGNORM = 1
+
+class SimulateModelParameter(object):
+    # {type -> {parameters}}
+    parameter = {
+        SimulateModelType.LOGNORM:{
+            'mu': 10,
+            'sigma': 3
+        }
+    }
+
+class SimulateFlowParameter(object):
+    inner_percent = 0.8
+    outer_percent = 1 - inner_percent
+    flow_per_host_per_min = 30
