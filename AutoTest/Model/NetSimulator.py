@@ -17,17 +17,17 @@ from Device import Host, Switch, Gateway
     仿真网络层
 '''
 class NetSimulator(object):
-    def __init__(self, topo):
+    def __init__(self, datacenter):
         super(NetSimulator, self).__init__()
-        self.topo = topo
+        self.datacenter = datacenter
 
     @abc.abstractmethod
     def simulate(self):
         pass
 
 class MininetSimulator(NetSimulator):
-    def __init__(self, topo):
-        super(MininetSimulator, self).__init__(topo)
+    def __init__(self, datacenter):
+        super(MininetSimulator, self).__init__(datacenter)
 
         self.hs_bw = LinkBandWidth.host_switch_bw
         self.ss_bw = LinkBandWidth.switch_switch_bw
@@ -36,13 +36,12 @@ class MininetSimulator(NetSimulator):
 
         self.link_type = TCLink
 
-        self.topo = topo
         self.net = Mininet(switch=OVSSwitch, listenPort = 6633)
 
     # simulate network for a dc
-    def simulate(self):
+    def simulate(self, client=True):
         setLogLevel("info")
-        topo = self.topo
+        topo = self.datacenter.topo
         net = self.net
 
         mycontroller = RemoteController("RemoteController")
@@ -65,9 +64,24 @@ class MininetSimulator(NetSimulator):
         for edge in topo.graph.edges:
             self.add_link(edge)
 
-        net.start()
-        CLI(net)
-        net.stop()
+        if client:
+            net.start()
+            CLI(net)
+            net.stop()
+            return
+        else:
+            net.start()
+            self.set_up_udp_listener()
+
+
+    # 为所有的主机打开udp监听端口
+    def set_up_udp_listener(self):
+        hosts = self.datacenter.hosts
+        for h in hosts:
+
+    # 根据输入的流信息仿真流
+
+
 
     # 依据拓扑边的属性添加连接
     def add_link(self, edge):

@@ -8,4 +8,4 @@ conf_file = '../config/net.json'
 
 if __name__ == '__main__':
     network = Network(conf_file)
-    network.save()
+    network.save(minute=1)

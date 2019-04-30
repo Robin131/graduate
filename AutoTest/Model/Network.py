@@ -195,12 +195,10 @@ class Network(object):
         建立mininet仿真
         需要输入本数据中心的id（需要在本地恢复Network配置后调用）
     '''
-    def set_up_mininet(self, dc_id):
+    def set_up_mininet(self, dc_id, client=True):
         if dc_id not in self.datacenters.keys():
             raise Errors.datacenter_id_not_covered
-        topo = self.datacenters[dc_id].dc_topo
-        simulator = MininetSimulator(topo)
-        simulator.simulate()
+        self.datacenters[dc_id].set_up_mininet(client=client)
         return
 
     # 为某个数据中心生成仿真的数据流记录
@@ -209,6 +207,11 @@ class Network(object):
             raise Errors.datacenter_id_not_covered
         dc = self.datacenters[dc_id]
         dc.generate_flow(minute=1)
+        return
+
+    # 运行数据流仿真
+    def simulate_flow(self, dc_id, minute):
+        self.datacenters[dc_id].simulate_flow(minute)
         return
 
 
@@ -263,15 +266,16 @@ class Network(object):
             res[dc_id1] = gateway
         return res
 
-    # 将Network以及配置文件进行保存
-    def save(self):
+    # 将Network以及配置文件进行保存，同时生成对应时长的数据流文件
+    def save(self, minute):
+        # 自身
         with open(pickle_file, "wb") as f:
             pickle.dump(self, f)
             f.close()
+        # 配置文件
         with open(config_dic, "wb") as f:
             pickle.dump(self.dc_config_info(), f)
             f.close()
-        return
 
     # TODO 获取dc统计数量，用于debug
     def get_dc_statistics(self):

@@ -8,9 +8,10 @@ from Device import Switch, Gateway
 from Topo import FatTreeTopo, FullMeshTopo
 from Errors import Errors
 from Flow import LognormFlowGenerator
+from NetSimulator import MininetSimulator
 
 flow_record = lambda i: '../Data/flow{}.pkl'.format(i)
-flow_seq = lambda i: '../Data/flow{}.pkl'.format(i)
+flow_seq_record = lambda i: '../Data/flow{}.pkl'.format(i)
 
 
 '''
@@ -35,6 +36,7 @@ class Datacenter(object):
         self.subnets = []
         self.current_dpid = 1
         self.flow_simulator = None
+        self.simulator = None
 
     def __str__(self):
         res = 'Datacenter: %d\n tenant: [' %(self.datacenter_id)
@@ -111,10 +113,9 @@ class Datacenter(object):
             with open(flow_record(i), "wb") as f:
                 pickle.dump(flows, f)
                 f.close()
-            with open(flow_seq, "wb") as f:
+            with open(flow_seq_record(i), "wb") as f:
                 pickle.dump(flow_seq, f)
                 f.close()
-
         return
 
     '''
@@ -173,6 +174,27 @@ class Datacenter(object):
                 dc_id = val[1].datacenter_id
                 res[dpid] = {dc_id: port_no}
         return res
+
+    '''
+        Methods to simulate networks
+    '''
+    def set_up_mininet(self, client):
+        self.simulator = MininetSimulator(self)
+        self.simulator.simulate(client=client)
+        return
+
+    def simulate_flow(self, minute):
+        for i in xrange(minute):
+            flows = {}
+            flow_seq = {}
+            with open(flow_record(i), "rb") as f:
+                flows = pickle.load(f)
+                f.close()
+            with open(flow_seq_record(i), "rb") as f:
+                flow_seq = pickle.load(f)
+                f.close()
+
+        return
 
     '''
         Util
