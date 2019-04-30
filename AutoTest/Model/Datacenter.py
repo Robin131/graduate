@@ -107,7 +107,7 @@ class Datacenter(object):
         self.flow_simulator = LognormFlowGenerator(self)
         simulator = self.flow_simulator
         for i in xrange(minute):
-            flows, flow_seq = simulator.generate_inner_flow_per_min()
+            flows, flow_seq = simulator.generate_inner_flow()
             with open(flow_record(i), "wb") as f:
                 pickle.dump(flows, f)
                 f.close()

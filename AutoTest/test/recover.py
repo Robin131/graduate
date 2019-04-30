@@ -14,7 +14,7 @@ if __name__ == '__main__':
     minute = 1
 
     network.generate_flow(dc_id=this_dc, minute=minute)
-    network.set_up_mininet(this_dc)
+    # network.set_up_mininet(this_dc)
 
 
     # dc = network.datacenters[this_dc]
