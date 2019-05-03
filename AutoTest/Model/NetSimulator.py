@@ -79,6 +79,11 @@ class MininetSimulator(NetSimulator):
         hosts = self.datacenter.hosts
         for h in hosts:
 
+
+    # 打开某个host的udp监听端口
+    def start_as_udp_server(self):
+        
+
     # 根据输入的流信息仿真流
 
 
