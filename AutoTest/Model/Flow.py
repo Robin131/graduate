@@ -68,14 +68,14 @@ class FlowGenerator(object):
     def init(self, kwargs):
         self.decode_kwargs(kwargs)
         self.divide_hosts()
-        self.flow_model = self.set_flow_model()
+        self.model = self.set_flow_model()
 
     # 根据租户及其不同子网划分host
     def divide_hosts(self):
         host_dic = self.host_dic
         for t in self.datacenter.tenants:
             dic = host_dic[t.tenant_id] = {}
-            for ip in t.subnets:
+            for ip in t.subnet:
                 dic[ip] = []
         for h in self.hosts:
             t_id = h.t_id
@@ -125,16 +125,14 @@ class FlowGenerator(object):
 class LognormFlowGenerator(FlowGenerator):
     def __init__(self, datacenter, **kwargs):
         self.parameter = kwargs
-
-        super(LognormFlowGenerator, self).__init__(datacenter, **kwargs)
-
         self.model_type = SimulateModelType.LOGNORM
-
+        super(LognormFlowGenerator, self).__init__(datacenter, **kwargs)
 
     def set_flow_model(self):
         para = self.parameter
         mu = para['mu'] if 'mu' in para.keys() else SimulateModelParameter.parameter[self.model_type]['mu']
         sigma = para['sigma'] if 'sigma' in para.keys() else SimulateModelParameter.parameter[self.model_type]['sigma']
+
         return stats.lognorm(s=sigma, scale=exp(mu))
 
     # 生成不含时间信息的流
@@ -178,7 +176,7 @@ class LognormFlowGenerator(FlowGenerator):
         for i in xrange(len(percents)):
             self.flow_seq[time_seq] = []
             flow_num = floor(percents[i] * inner_flow_per_min)
-            sizes = self.model.rvs(size=flow_num)
+            sizes = self.model.rvs(size=int(flow_num))
             for s in sizes:
                 src, dst = self.inner_pair()
                 if src == dst:

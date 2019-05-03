@@ -1,3 +1,12 @@
+# -*- coding:utf-8 -*-
+
+flow_record = lambda i: '../Data/flow/flow{}.pkl'.format(i)             # 第i分钟的流️信息
+flow_seq_record = lambda i: '../Data/flow/flow_seq{}.pkl'.format(i)     # 第i分钟的流序列信息
+pickle_file = '../Data/network.pkl'                                     # network文件
+config_dic = '../Data/config.pkl'                                       # 配置信息文件
+server_result_record = lambda i: '../Data/server_res/server_{}.out'.format(i)      # 服务器结果信息
+
+
 
 class TenantPriority(object):
     priority = {
@@ -28,8 +37,8 @@ class SimulateModelParameter(object):
     # {type -> {parameters}}
     parameter = {
         SimulateModelType.LOGNORM:{
-            'mu': 10000,
-            'sigma': 100
+            'mu': 10,
+            'sigma': 1
         }
     }
 
@@ -37,3 +46,4 @@ class SimulateFlowParameter(object):
     inner_percent = 0.8
     outer_percent = 1 - inner_percent
     flow_per_host_per_min = 30
+

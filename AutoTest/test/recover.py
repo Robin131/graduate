@@ -12,13 +12,13 @@ if __name__ == '__main__':
         f.close()
 
     minute = 1
-    client = True
+    client = False
 
     if client:
         network.set_up_mininet(dc_id=this_dc, client=True)
     else:
         network.generate_flow(dc_id=this_dc, minute=minute)
-        # network.set_up_mininet(dc_id=this_dc, client=False, minute=minute)
+        network.set_up_mininet(dc_id=this_dc, client=False, minute=minute)
 
     # dc = network.datacenters[this_dc]
     # for s in dc.switches:

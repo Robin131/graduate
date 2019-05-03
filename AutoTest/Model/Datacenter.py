@@ -9,9 +9,7 @@ from Topo import FatTreeTopo, FullMeshTopo
 from Errors import Errors
 from Flow import LognormFlowGenerator
 from NetSimulator import MininetSimulator
-
-flow_record = lambda i: '../Data/flow{}.pkl'.format(i)
-flow_seq_record = lambda i: '../Data/flow{}.pkl'.format(i)
+from const import flow_record, flow_seq_record
 
 
 '''
@@ -178,9 +176,9 @@ class Datacenter(object):
     '''
         Methods to simulate networks
     '''
-    def set_up_mininet(self, client):
+    def set_up_mininet(self, client, minute=1):
         self.simulator = MininetSimulator(self)
-        self.simulator.simulate(client=client, minute=1)
+        self.simulator.simulate(client=client, minute=minute)
         return
 
 

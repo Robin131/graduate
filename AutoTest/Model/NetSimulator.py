@@ -10,10 +10,9 @@ from mininet.node import RemoteController, OVSSwitch
 from mininet.link import TCLink
 
 from Net import Net
-from const import LinkBandWidth, LinkType
+from const import LinkBandWidth, LinkType, flow_record, flow_seq_record
 from Util import Util
 from Device import Host, Switch, Gateway
-from Datacenter import flow_record, flow_seq_record
 
 '''
     仿真网络层
@@ -43,7 +42,7 @@ class MininetSimulator(NetSimulator):
     # simulate network for a dc
     def simulate(self, client=True, minute=1):
         setLogLevel("info")
-        topo = self.datacenter.topo
+        topo = self.datacenter.dc_topo
         net = self.net
 
         mycontroller = RemoteController("RemoteController")
@@ -75,7 +74,7 @@ class MininetSimulator(NetSimulator):
             net.start()
             self.set_up_udp_listener()
             self.simulate_flow(minute=minute)
-
+            # net.stop()
 
     # 为所有的主机打开udp监听端口
     def set_up_udp_listener(self):

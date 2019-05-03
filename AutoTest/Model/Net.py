@@ -2,7 +2,7 @@
 
 from mininet.net import Mininet
 
-result_record = lambda i: '../Data/server_{}.out'.format(i)
+from const import server_result_record
 
 class Net(Mininet):
 
@@ -10,7 +10,7 @@ class Net(Mininet):
         iperf_args = 'iperf -u '
         server = self.get(h.name)
         print('*** start server on {} ***'.format(h.name))
-        server.cmd(iperf_args + '-s -i 1 ' + '> ' + result_record(h.id) + '&')
+        server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.id) + '&')
         return
 
     # TODO 将结果存入文件

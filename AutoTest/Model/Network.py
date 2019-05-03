@@ -7,11 +7,8 @@ from Errors import Errors
 from Datacenter import Datacenter
 from Tenant import Tenant
 from Util import Pool, Util
-from const import TenantPriority
-from NetSimulator import MininetSimulator
+from const import TenantPriority, pickle_file, config_dic
 
-pickle_file = '../Data/network.pkl'
-config_dic = '../Data/config.pkl'
 
 '''
     Network class
@@ -195,10 +192,10 @@ class Network(object):
         建立mininet仿真
         需要输入本数据中心的id（需要在本地恢复Network配置后调用）
     '''
-    def set_up_mininet(self, dc_id, client=True):
+    def set_up_mininet(self, dc_id, client=True, minute=1):
         if dc_id not in self.datacenters.keys():
             raise Errors.datacenter_id_not_covered
-        self.datacenters[dc_id].set_up_mininet(client=client)
+        self.datacenters[dc_id].set_up_mininet(client=client, minute=minute)
         return
 
     # 为某个数据中心生成仿真的数据流记录
