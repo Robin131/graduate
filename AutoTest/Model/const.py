@@ -28,8 +28,8 @@ class SimulateModelParameter(object):
     # {type -> {parameters}}
     parameter = {
         SimulateModelType.LOGNORM:{
-            'mu': 10,
-            'sigma': 3
+            'mu': 10000,
+            'sigma': 100
         }
     }
 

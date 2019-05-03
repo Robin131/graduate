@@ -1,17 +1,19 @@
 # -*- coding:utf-8 -*-
 import abc
-import networkx as nx
+import time
+import cPickle as pickle
 
 # mininet simulator
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info,error
-from mininet.net import Mininet
 from mininet.node import RemoteController, OVSSwitch
 from mininet.link import TCLink
 
+from Net import Net
 from const import LinkBandWidth, LinkType
 from Util import Util
 from Device import Host, Switch, Gateway
+from Datacenter import flow_record, flow_seq_record
 
 '''
     仿真网络层
@@ -36,10 +38,10 @@ class MininetSimulator(NetSimulator):
 
         self.link_type = TCLink
 
-        self.net = Mininet(switch=OVSSwitch, listenPort = 6633)
+        self.net = Net(switch=OVSSwitch, listenPort = 6633)
 
     # simulate network for a dc
-    def simulate(self, client=True):
+    def simulate(self, client=True, minute=1):
         setLogLevel("info")
         topo = self.datacenter.topo
         net = self.net
@@ -72,19 +74,41 @@ class MininetSimulator(NetSimulator):
         else:
             net.start()
             self.set_up_udp_listener()
+            self.simulate_flow(minute=minute)
 
 
     # 为所有的主机打开udp监听端口
     def set_up_udp_listener(self):
         hosts = self.datacenter.hosts
         for h in hosts:
-
-
-    # 打开某个host的udp监听端口
-    def start_as_udp_server(self):
-        
+            self.net.set_up_udp_listener(h)
+        return
 
     # 根据输入的流信息仿真流
+    def simulate_flow(self, minute):
+        for i in xrange(minute):
+            st = time.time()
+            flows = {}
+            flow_seq = {}
+            with open(flow_record(i), "rb") as f:
+                flows = pickle.load(f)
+                f.close()
+            with open(flow_seq_record(i), "rb") as f:
+                flow_seq = pickle.load(f)
+                f.close()
+            # 1 minute time seq
+            for i in xrange(60):
+                fs = flow_seq[i]
+                for idx in fs:
+                    flow = flows[i]
+                    src = flow.src
+                    dst = flow.dst
+                    size = flow.size
+                    self.net.udp_flow(src=src, dst=dst, size=size)
+            et = time.time()
+            print('--- consume time {} ---'.format(et - st))
+        return
+
 
 
 

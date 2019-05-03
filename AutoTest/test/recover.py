@@ -17,9 +17,8 @@ if __name__ == '__main__':
     if client:
         network.set_up_mininet(dc_id=this_dc, client=True)
     else:
-        network.set_up_mininet(dc_id=this_dc, client=False)
         network.generate_flow(dc_id=this_dc, minute=minute)
-        network.simulate_flow(dc_id=this_dc, minute=minute)
+        # network.set_up_mininet(dc_id=this_dc, client=False, minute=minute)
 
     # dc = network.datacenters[this_dc]
     # for s in dc.switches:

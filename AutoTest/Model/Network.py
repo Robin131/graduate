@@ -209,11 +209,6 @@ class Network(object):
         dc.generate_flow(minute=1)
         return
 
-    # 运行数据流仿真
-    def simulate_flow(self, dc_id, minute):
-        self.datacenters[dc_id].simulate_flow(minute)
-        return
-
 
     '''
         返回数据中心需要的配置信息，对于每个数据中心，格式为

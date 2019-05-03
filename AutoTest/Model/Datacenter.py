@@ -180,21 +180,9 @@ class Datacenter(object):
     '''
     def set_up_mininet(self, client):
         self.simulator = MininetSimulator(self)
-        self.simulator.simulate(client=client)
+        self.simulator.simulate(client=client, minute=1)
         return
 
-    def simulate_flow(self, minute):
-        for i in xrange(minute):
-            flows = {}
-            flow_seq = {}
-            with open(flow_record(i), "rb") as f:
-                flows = pickle.load(f)
-                f.close()
-            with open(flow_seq_record(i), "rb") as f:
-                flow_seq = pickle.load(f)
-                f.close()
-
-        return
 
     '''
         Util
