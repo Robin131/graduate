@@ -80,7 +80,7 @@ class MininetSimulator(NetSimulator):
         else:
             net.start()
 
-            time.sleep(1)
+            time.sleep(8)
             self.set_up_udp_listener()
             self.simulate_flow(minute=minute)
             # net.stop()
