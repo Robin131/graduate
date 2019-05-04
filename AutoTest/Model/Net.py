@@ -11,12 +11,8 @@ class Net(Mininet):
         iperf_args = 'iperf -u '
         server = self.get(h.name)
         print('*** start server on {} ***'.format(h.name))
-        threading.Thread(target=self.c1, args = (server, iperf_args, h))
-        return
-
-
-    def c1(self, server, iperf_args, h):
         server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.id) + '&')
+        return
 
     # TODO 将结果存入文件
     def udp_flow(self, src, dst, size):
@@ -30,13 +26,9 @@ class Net(Mininet):
         print('*** start flow on {} ***'.format(src.name))
         print('src:{}, dst: {}, size:{}'.format(src.ip, dst.ip, size))
         st = time.time()
-        client.cmd(iperf_args + period_args + '-c ' + server.IP())
-        # threading.Thread(target=self.c2, args=(client, iperf_args, period_args, server)).start()
+        client.cmd(iperf_args + size_args + '-c ' + server.IP())
         et = time.time()
 
         print('--- consume time {} ---'.format(et - st))
 
         return
-
-    def c2(self, client, iperf_args, period_args ,server):
-        client.cmd(iperf_args + period_args + '-c ' + server.IP())

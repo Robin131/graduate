@@ -48,5 +48,5 @@ class SimulateFlowParameter(object):
     flow_per_host_per_min = 30
 
 class ThreadParameter(object):
-    max_num = 10
-    
+    max_num = 5
+    thread_sleep_time = 0.02

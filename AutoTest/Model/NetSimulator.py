@@ -10,9 +10,16 @@ from mininet.node import RemoteController, OVSSwitch
 from mininet.link import TCLink
 
 from Net import Net
-from const import LinkBandWidth, LinkType, flow_record, flow_seq_record
+from const import (
+    LinkBandWidth,
+    LinkType,
+    flow_record,
+    flow_seq_record,
+    ThreadParameter
+)
 from Util import Util
 from Device import Host, Switch, Gateway
+from ThreadPool import ThreadPool
 
 '''
     仿真网络层
@@ -97,21 +104,24 @@ class MininetSimulator(NetSimulator):
             with open(flow_seq_record(i), "rb") as f:
                 flow_seq = pickle.load(f)
                 f.close()
-            # 1 minute time seq
+
+            # 使用线程池模拟一分钟内的流量
+            thread_pool = ThreadPool(thread_num=ThreadParameter.max_num)
             for i in xrange(60):
                 fs = flow_seq[i]
                 for idx in fs:
                     flow = flows[idx]
-                    src = flow.src
-                    dst = flow.dst
-                    size = flow.size
-                    self.net.udp_flow(src=src, dst=dst, size=size)
+                    thread_pool.add_job(
+                        func=self.net.udp_flow,
+                        time_seq=i,
+                        src=flow.src,
+                        dst=flow.dst,
+                        size=flow.size
+                    )
+                    thread_pool.start()
             et = time.time()
             # print('--- consume time {} ---'.format(et - st))
         return
-
-
-
 
     # 依据拓扑边的属性添加连接
     def add_link(self, edge):
