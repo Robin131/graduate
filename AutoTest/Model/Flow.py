@@ -70,6 +70,9 @@ class FlowGenerator(object):
         self.divide_hosts()
         self.model = self.set_flow_model()
 
+        print('===============')
+        print(self.host_dic)
+
     # 根据租户及其不同子网划分host
     def divide_hosts(self):
         host_dic = self.host_dic
@@ -82,6 +85,7 @@ class FlowGenerator(object):
             for subnet in host_dic[t_id].keys():
                 if U.is_in_subnet(h.ip, subnet):
                     host_dic[t_id][subnet].append(h)
+                    continue
         return
 
     # 随机生成一对可以通信的hosts
@@ -135,21 +139,6 @@ class LognormFlowGenerator(FlowGenerator):
 
         return stats.lognorm(s=sigma, scale=exp(mu))
 
-    # 生成不含时间信息的流
-    def generate_inner_flow_per_min(self):
-        flow_per_min = self.flow_per_host_per_min * len(self.hosts)
-        # 每分钟的内部流量总数
-        inner_flow_per_min = ceil(flow_per_min * self.inner_percent)
-        flows = []
-        for i in xrange(inner_flow_per_min):
-            size = self.model.rvs()
-            src, dst = self.inner_pair()
-            if src == dst:
-                continue
-            flow = Flow(src=src, dst=dst, size=size)
-            flows.append(flow)
-        return flows
-
     # 模拟时间周期生成每秒要发送的百分比（目前先使用均匀分布）
     def generate_percent_per_time_unit(self):
         duration = 60
@@ -165,7 +154,6 @@ class LognormFlowGenerator(FlowGenerator):
 
     # 生成一分钟的内部流量
     def generate_inner_flow(self):
-        flow_per_min = self.flow_per_host_per_min * len(self.hosts)
         # 每分钟的内部流量总数
         inner_flow_per_min = self.generate_inner_flow_num_per_min()
 
@@ -181,9 +169,9 @@ class LognormFlowGenerator(FlowGenerator):
                 src, dst = self.inner_pair()
                 if src == dst:
                     continue
-                flow = Flow(src=src, dst=dst, size=s, start_time=time_seq)
+                flow = Flow(src=src, dst=dst, size=round(s), start_time=time_seq)
                 self.flows[flow_id] = flow
-                self.flow_seq[time_seq].append(flow)
+                self.flow_seq[time_seq].append(flow_id)
                 flow_id += 1
             time_seq += 1
         return self.flows, self.flow_seq

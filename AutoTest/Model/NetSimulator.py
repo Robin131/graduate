@@ -72,6 +72,8 @@ class MininetSimulator(NetSimulator):
             return
         else:
             net.start()
+
+            time.sleep(10)
             self.set_up_udp_listener()
             self.simulate_flow(minute=minute)
             # net.stop()
@@ -99,13 +101,13 @@ class MininetSimulator(NetSimulator):
             for i in xrange(60):
                 fs = flow_seq[i]
                 for idx in fs:
-                    flow = flows[i]
+                    flow = flows[idx]
                     src = flow.src
                     dst = flow.dst
                     size = flow.size
                     self.net.udp_flow(src=src, dst=dst, size=size)
             et = time.time()
-            print('--- consume time {} ---'.format(et - st))
+            # print('--- consume time {} ---'.format(et - st))
         return
 
 

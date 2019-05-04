@@ -163,7 +163,7 @@ class Util(object):
         _ = subnet.split('/')
         sub_ip, mask = _[0], _[1]
         subnet_part = sub_ip.split('.')
-        mask = int(mask) / 4
+        mask = int(mask) / 8
         same_digit = 4 - mask
 
         same = True
