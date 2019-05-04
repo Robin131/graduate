@@ -80,7 +80,7 @@ class MininetSimulator(NetSimulator):
         else:
             net.start()
 
-            time.sleep(10)
+            time.sleep(1)
             self.set_up_udp_listener()
             self.simulate_flow(minute=minute)
             # net.stop()
@@ -107,6 +107,7 @@ class MininetSimulator(NetSimulator):
 
             # 使用线程池模拟一分钟内的流量
             thread_pool = ThreadPool(thread_num=ThreadParameter.max_num)
+            print('============ start to add job')
             for i in xrange(60):
                 fs = flow_seq[i]
                 for idx in fs:
@@ -118,7 +119,8 @@ class MininetSimulator(NetSimulator):
                         dst=flow.dst,
                         size=flow.size
                     )
-                    thread_pool.start()
+            print('============ finish to add job')
+            thread_pool.start()
             et = time.time()
             # print('--- consume time {} ---'.format(et - st))
         return

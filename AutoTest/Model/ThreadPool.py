@@ -16,8 +16,8 @@ class ThreadPool(object):
         self.threads = []
 
     # 向线程池中添加任务
-    def add_job(self, func, time_seq, **kwargs):
-        self.work_queue.put((func, time_seq, kwargs))
+    def add_job(self, func, **kwargs):
+        self.work_queue.put((func, kwargs))
 
     # 开始
     def start(self):
@@ -28,7 +28,7 @@ class ThreadPool(object):
     # 等待全部线程执行完毕
     def wait_all_complete(self):
         for item in self.threads:
-            if item.isActive():
+            if item.isAlive():
                 item.join()
 
 '''
@@ -43,16 +43,15 @@ class Thread(threading.Thread):
     def run(self):
         st = time.time()
         while(True):
-            try:
-                func, time_seq, kwargs = self.work_queue.get(block=False)
+            func, kwargs = self.work_queue.get(block=False)
+            time_seq = kwargs['time_seq']
+            now = time.time()
+            while now - st < time_seq:
+                time.sleep(ThreadParameter.thread_sleep_time)
                 now = time.time()
-                while now - st < time_seq:
-                    time.sleep(ThreadParameter.thread_sleep_time)
-                    now = time.time()
-                func(kwargs)
-                self.work_queue.task_done()
-            except:
-                break
+            func(src=kwargs['src'], dst=kwargs['dst'], size=kwargs['size'])
+            print('time:{}, src: {}, dst: {}, size:{}'.format(time_seq, kwargs['src'].ip, kwargs['dst'].ip, kwargs['size']))
+            self.work_queue.task_done()
 
 
 
