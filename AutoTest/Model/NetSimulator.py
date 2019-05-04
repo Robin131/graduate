@@ -95,7 +95,6 @@ class MininetSimulator(NetSimulator):
     # 根据输入的流信息仿真流
     def simulate_flow(self, minute):
         for i in xrange(minute):
-            st = time.time()
             flows = {}
             flow_seq = {}
             with open(flow_record(i), "rb") as f:
@@ -107,7 +106,6 @@ class MininetSimulator(NetSimulator):
 
             # 使用线程池模拟一分钟内的流量
             thread_pool = ThreadPool(thread_num=ThreadParameter.max_num)
-            print('============ start to add job')
             for i in xrange(60):
                 fs = flow_seq[i]
                 for idx in fs:
@@ -119,10 +117,7 @@ class MininetSimulator(NetSimulator):
                         dst=flow.dst,
                         size=flow.size
                     )
-            print('============ finish to add job')
             thread_pool.start()
-            et = time.time()
-            # print('--- consume time {} ---'.format(et - st))
         return
 
     # 依据拓扑边的属性添加连接
