@@ -47,3 +47,6 @@ class SimulateFlowParameter(object):
     outer_percent = 1 - inner_percent
     flow_per_host_per_min = 30
 
+class ThreadParameter(object):
+    max_num = 10
+    
