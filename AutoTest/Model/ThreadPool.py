@@ -3,6 +3,7 @@
 import time
 import threading
 import Queue
+import abc
 
 from const import ThreadParameter
 
@@ -30,6 +31,7 @@ class ThreadPool(object):
         for item in self.threads:
             if item.isAlive():
                 item.join()
+
 
 '''
     线程类
@@ -61,6 +63,5 @@ class Thread(threading.Thread):
                 else:
                     print(e.message)
                     continue
-
 
 
