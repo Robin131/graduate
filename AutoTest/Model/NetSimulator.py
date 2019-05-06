@@ -46,8 +46,8 @@ class MininetSimulator(NetSimulator):
 
         self.link_type = TCLink
 
-        self.net = Net(switch=OVSSwitch, listenPort = 6633)
-        # self.net = Net(switch=OVSSwitch, controller=Controller)
+        # self.net = Net(switch=OVSSwitch, listenPort = 6633)
+        self.net = Net(switch=OVSSwitch, controller=Controller)
         # self.net = Net(controller=Controller)
 
     # simulate network for a dc
@@ -59,10 +59,10 @@ class MininetSimulator(NetSimulator):
         topo = self.datacenter.dc_topo
         net = self.net
 
-        # self.net.addController('c0')
-        mycontroller = RemoteController("RemoteController")
-        self.net.controllers = [mycontroller]
-        self.net.nameToNode["RemoteController"] = mycontroller
+        net.addController('c0')
+        # mycontroller = RemoteController("RemoteController")
+        # self.net.controllers = [mycontroller]
+        # self.net.nameToNode["RemoteController"] = mycontroller
 
         hosts = topo.hosts
         switches = topo.switches
@@ -88,8 +88,7 @@ class MininetSimulator(NetSimulator):
             return
         else:
             net.start()
-
-            time.sleep(8)
+            time.sleep(2)
             self.set_up_udp_listener()
             while True:
                 continue
@@ -100,8 +99,7 @@ class MininetSimulator(NetSimulator):
     def set_up_udp_listener(self):
         hosts = self.datacenter.hosts
         for h in hosts:
-            if h.name == 'h00100003':
-                self.net.set_up_udp_listener(h)
+            self.net.set_up_udp_listener(h)
         return
 
     # 根据输入的流信息仿真流
