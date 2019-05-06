@@ -46,23 +46,32 @@ class MininetSimulator(NetSimulator):
 
         self.link_type = TCLink
 
-        self.net = Net(switch=OVSSwitch, listenPort = 6633)
+        self.net = None
+        # self.net = Net(switch=OVSSwitch, listenPort = 6633)
         # self.net = Net(switch=OVSSwitch, controller=Controller)
         # self.net = Net(controller=Controller)
 
     # simulate network for a dc
-    def simulate(self, client=True, minute=1):
+    def simulate(self, controller=None, client=True, minute=1):
         # 删除上一次的测试文件
         U.del_file(FilePath.res_path)
-        
+
         setLogLevel("info")
         topo = self.datacenter.dc_topo
-        net = self.net
 
-        # net.addController('c0')
-        mycontroller = RemoteController("RemoteController")
-        self.net.controllers = [mycontroller]
-        self.net.nameToNode["RemoteController"] = mycontroller
+        if controller is None:
+            self.net = Net(Switch=OVSSwitch, controller=Controller)
+            self.net.addController('c0')
+        if controller["type"] == "remote":
+            self.net = Net(Switch=OVSSwitch, listenPort=controller["port"])
+            mycontroller = RemoteController("RemoteController")
+            self.net.controllers = [mycontroller]
+            self.net.nameToNode["RemoteController"] = mycontroller
+        else:
+            self.net = Net(Switch=OVSSwitch, controller=Controller)
+            self.net.addController('c0')
+        
+        net = self.net
 
         hosts = topo.hosts
         switches = topo.switches

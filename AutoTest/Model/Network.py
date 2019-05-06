@@ -51,6 +51,7 @@ class Network(object):
         self.gen_inner_topo()
         self.gen_outer_topo()
         self.allocate_dpid()
+        self.set_controller()
 
         # print(len(self.datacenters[1].gateways))
         # print(self.get_dc_statistics())
@@ -187,6 +188,15 @@ class Network(object):
             dc.allocate_dpid()
         return
 
+    # 为数据中心指定控制器
+    def set_controller(self):
+        if self.conf_dic == {}:
+            pass
+        if "controller" not in self.conf_dic.keys():
+            raise Errors.conf_no_controller
+        for _, dc in self.datacenters.items():
+            dc.set_controller(config_dic['controller'])
+        return
 
     '''
         建立mininet仿真
@@ -205,7 +215,6 @@ class Network(object):
         dc = self.datacenters[dc_id]
         dc.generate_flow(minute=1)
         return
-
 
     '''
         返回数据中心需要的配置信息，对于每个数据中心，格式为

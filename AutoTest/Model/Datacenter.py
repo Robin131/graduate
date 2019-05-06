@@ -35,6 +35,7 @@ class Datacenter(object):
         self.current_dpid = 1
         self.flow_simulator = None
         self.simulator = None
+        self.controller = None
 
     def __str__(self):
         res = 'Datacenter: %d\n tenant: [' %(self.datacenter_id)
@@ -144,6 +145,12 @@ class Datacenter(object):
         self.dc_topo = LinearTopo(self.hosts, self.switches, self.gateways, density)
         self.dc_topo.create(bw={})
 
+    def set_controller(self, controller_dic):
+        dic = controller_dic
+        assert "type" in dic.keys() and "port" in dic.keys()
+        self.controller = dic
+        return
+    
     '''
         methods to get components or relationship
     '''

@@ -28,3 +28,4 @@ class Errors(object):
     host_host_link =                                    BaseError(16, 'Host间建立了连接')
     host_gateway_link =                                 BaseError(17, 'Host与Gateway间jianlile')
     datacenter_id_not_covered =                         BaseError(18, '网络中不存在该数据中心id')
+    conf_no_controller =                                BaseError(19, '缺少controller配置信息')
