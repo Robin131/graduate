@@ -1,5 +1,7 @@
 # -*- coding:utf-8 -*-
 
+import os
+
 from Errors import Errors
 from const import LinkType, LinkBandWidth
 from Device import Host, Switch, Gateway
@@ -170,3 +172,13 @@ class Util(object):
         for i in xrange(same_digit):
             same = same and ip_part[i] == subnet_part[i]
         return same
+
+    @staticmethod
+    def del_file(path):
+        ls = os.listdir(path)
+        for i in ls:
+            c_path = os.path.join(path, i)
+            if os.path.isdir(c_path):
+                Util.del_file(c_path)
+            else:
+                os.remove(c_path)
