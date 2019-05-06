@@ -1,6 +1,7 @@
 from mininet.net import Mininet
 from mininet.node import Controller
 from mininet.log import info
+from mininet.cli import CLI
 
 
 
@@ -36,3 +37,7 @@ if __name__ == '__main__':
     net.addLink(s2, s3)
     net.addLink(s3, s4)
     net.addLink(s4, s5)
+
+    net.start()
+    CLI(net)
+    net.stop()
