@@ -203,7 +203,7 @@ class LinearTopo(DC_Topo):
         # connect switch in line
         self.graph.add_nodes_from(switches, type='Switch')
         for i in xrange(len(switches)):
-            if i == len(switches):
+            if i == len(switches) - 1:
                 break
             s1 = switches[i]
             s2 = switches[i + 1]

@@ -10,8 +10,8 @@ class Net(Mininet):
     def set_up_udp_listener(self, h):
         iperf_args = 'iperf -u '
         server = self.get(h.name)
-        print('*** start server on {} ***'.format(h.name))
-        server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.id) + '&')
+        print('*** start server on {}***'.format(h.name))
+        server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.t_id, h.id) + '&')
         return
 
     # TODO 将结果存入文件
@@ -21,7 +21,7 @@ class Net(Mininet):
 
         iperf_args = 'iperf -u '
         size_args = '-n ' + str(size) + ' '
-        period_args = '-t 3 '
+        period_args = '-t 1 '
 
         print('*** start flow on {} ***'.format(src.name))
         print('src:{}, dst: {}, size:{}'.format(src.ip, dst.ip, size))

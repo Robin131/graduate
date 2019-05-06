@@ -97,7 +97,7 @@ class FlowGenerator(object):
             if U.is_in_subnet(h1.ip, subnet):
                 hosts = dic[subnet]
         assert len(hosts) > 0
-        if hosts == 1:
+        if len(hosts) == 1:
             return h1, h1
         h2 = h1
         while h2 == h1:

@@ -4,7 +4,7 @@ flow_record = lambda i: '../Data/flow/flow{}.pkl'.format(i)             # 第i�
 flow_seq_record = lambda i: '../Data/flow/flow_seq{}.pkl'.format(i)     # 第i分钟的流序列信息
 pickle_file = '../Data/network.pkl'                                     # network文件
 config_dic = '../Data/config.pkl'                                       # 配置信息文件
-server_result_record = lambda i: '../Data/server_res/server_{}.out'.format(i)      # 服务器结果信息
+server_result_record = lambda i, j: '../Data/server_res/server_t{}_h{}.out'.format(i, j)      # 服务器结果信息
 
 
 

@@ -44,8 +44,8 @@ class MininetSimulator(NetSimulator):
 
         self.link_type = TCLink
 
-        # self.net = Net(switch=OVSSwitch, listenPort = 6633)
-        self.net = Net(switch=OVSSwitch, controller=Controller)
+        self.net = Net(switch=OVSSwitch, listenPort = 6633)
+        # self.net = Net(switch=OVSSwitch, controller=Controller)
         # self.net = Net(controller=Controller)
 
     # simulate network for a dc
@@ -54,10 +54,10 @@ class MininetSimulator(NetSimulator):
         topo = self.datacenter.dc_topo
         net = self.net
 
-        net.addController('c0')
-        # mycontroller = RemoteController("RemoteController")
-        # self.net.controllers = [mycontroller]
-        # self.net.nameToNode["RemoteController"] = mycontroller
+        # net.addController('c0')
+        mycontroller = RemoteController("RemoteController")
+        self.net.controllers = [mycontroller]
+        self.net.nameToNode["RemoteController"] = mycontroller
 
         hosts = topo.hosts
         switches = topo.switches
@@ -67,7 +67,7 @@ class MininetSimulator(NetSimulator):
         for h in hosts:
             net.addHost(h.name, ip=h.ip, mac=h.mac)
         for s in switches:
-            net.addSwitch(s.name, ip=s.ip, mac=s.mac, dpid=Util.dpid_num_2_dpid_hex(s.dpid), datapath='user')
+            net.addSwitch(s.name, ip=s.ip, mac=s.mac, dpid=Util.dpid_num_2_dpid_hex(s.dpid))
         for g in gateways:
             net.addSwitch(g.name, ip=g.ip, dpid=Util.dpid_num_2_dpid_hex(g.dpid))
 
@@ -77,16 +77,15 @@ class MininetSimulator(NetSimulator):
 
         if client:
             net.start()
-            self.set_up_udp_listener()
+            # self.set_up_udp_listener()
             CLI(net)
             net.stop()
             return
         else:
             net.start()
-            time.sleep(2)
+            time.sleep(10)
             self.set_up_udp_listener()
-            while True:
-                continue
+            time.sleep(1)
             self.simulate_flow(minute=minute)
             # net.stop()
 

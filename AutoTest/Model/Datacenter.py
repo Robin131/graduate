@@ -142,7 +142,7 @@ class Datacenter(object):
     def create_linear_topo(self):
         density = self.switch_density
         self.dc_topo = LinearTopo(self.hosts, self.switches, self.gateways, density)
-        self.dc_topo.create_full_mesh_topo(bw={})
+        self.dc_topo.create(bw={})
 
     '''
         methods to get components or relationship
