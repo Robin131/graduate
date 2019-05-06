@@ -6,7 +6,7 @@ import cPickle as pickle
 # mininet simulator
 from mininet.cli import CLI
 from mininet.log import setLogLevel, info,error
-from mininet.node import RemoteController, OVSSwitch
+from mininet.node import RemoteController, OVSSwitch, Controller
 from mininet.link import TCLink
 
 from Net import Net
@@ -45,6 +45,8 @@ class MininetSimulator(NetSimulator):
         self.link_type = TCLink
 
         self.net = Net(switch=OVSSwitch, listenPort = 6633)
+        # self.net = Net(switch=OVSSwitch, controller=Controller)
+        # self.net = Net(controller=Controller)
 
     # simulate network for a dc
     def simulate(self, client=True, minute=1):
@@ -52,6 +54,7 @@ class MininetSimulator(NetSimulator):
         topo = self.datacenter.dc_topo
         net = self.net
 
+        # self.net.addController('c0')
         mycontroller = RemoteController("RemoteController")
         self.net.controllers = [mycontroller]
         self.net.nameToNode["RemoteController"] = mycontroller
@@ -74,6 +77,7 @@ class MininetSimulator(NetSimulator):
 
         if client:
             net.start()
+            self.set_up_udp_listener()
             CLI(net)
             net.stop()
             return
@@ -82,6 +86,8 @@ class MininetSimulator(NetSimulator):
 
             time.sleep(8)
             self.set_up_udp_listener()
+            while True:
+                continue
             self.simulate_flow(minute=minute)
             # net.stop()
 
@@ -89,7 +95,8 @@ class MininetSimulator(NetSimulator):
     def set_up_udp_listener(self):
         hosts = self.datacenter.hosts
         for h in hosts:
-            self.net.set_up_udp_listener(h)
+            if h.name == 'h00100003':
+                self.net.set_up_udp_listener(h)
         return
 
     # 根据输入的流信息仿真流
