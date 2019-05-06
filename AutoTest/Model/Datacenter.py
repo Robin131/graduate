@@ -5,7 +5,7 @@ from math import ceil
 
 from Util import Util
 from Device import Switch, Gateway
-from Topo import FatTreeTopo, FullMeshTopo
+from Topo import FatTreeTopo, FullMeshTopo, LinearTopo
 from Errors import Errors
 from Flow import LognormFlowGenerator
 from NetSimulator import MininetSimulator
@@ -124,6 +124,8 @@ class Datacenter(object):
             self.create_fattree_topo()
         elif self.topo_conf[0] == 'fullmesh':
             self.create_full_mesh_topo()
+        elif self.topo_conf[0] == 'linear':
+            self.create_linear_topo()
         else:
             return
 
@@ -134,6 +136,12 @@ class Datacenter(object):
     def create_full_mesh_topo(self):
         density = self.switch_density
         self.dc_topo = FullMeshTopo(self.hosts, self.switches, self.gateways, density)
+        self.dc_topo.create_full_mesh_topo(bw={})
+
+    # TODO test
+    def create_linear_topo(self):
+        density = self.switch_density
+        self.dc_topo = LinearTopo(self.hosts, self.switches, self.gateways, density)
         self.dc_topo.create_full_mesh_topo(bw={})
 
     '''

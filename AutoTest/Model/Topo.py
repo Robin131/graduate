@@ -185,3 +185,49 @@ class FullMeshTopo(DC_Topo):
                 self.add_inner_link(s, g, bw=0)
 
         return
+
+
+class LinearTopo(DC_Topo):
+    def __init__(self, hosts, switches, gateways, density):
+        super(LinearTopo, self).__init__(hosts, switches, gateways)
+
+        self.density = density
+
+    def create(self, bw):
+        hosts = self.hosts
+        switches = self.switches
+
+        # connect switch in line
+        self.graph.add_nodes_from(switches, type='Switch')
+        for i in xrange(len(switches)):
+            if i == len(switches):
+                break
+            s1 = switches[i]
+            s2 = switches[i + 1]
+            self.add_inner_link(s1, s2, bw=0)
+
+        # connect hosts
+        host_group = []
+        self.graph.add_nodes_from(hosts, type='Host')
+        host_index = range(len(hosts))
+        while len(host_index) > self.density:
+            pick = random.sample(host_index, self.density)
+            host_group.append(pick)
+            for i in pick:
+                host_index.remove(i)
+        host_group.append(host_index)
+
+        i = 0
+        for s in switches:
+            if i == len(host_group):
+                break
+            else:
+                for h_index in host_group[i]:
+                    self.graph.add_edge(s, hosts[h_index])
+                    s.add_inner_connect(hosts[h_index], bw=0)
+                i += 1
+
+        # TODO connect gateways
+
+
+        return
