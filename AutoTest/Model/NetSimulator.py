@@ -15,11 +15,13 @@ from const import (
     LinkType,
     flow_record,
     flow_seq_record,
-    ThreadParameter
+    ThreadParameter,
+    FilePath
 )
 from Util import Util
 from Device import Host, Switch, Gateway
 from ThreadPool import ThreadPool
+from Util import Util as U
 
 '''
     仿真网络层
@@ -50,6 +52,9 @@ class MininetSimulator(NetSimulator):
 
     # simulate network for a dc
     def simulate(self, client=True, minute=1):
+        # 删除上一次的测试文件
+        U.del_file(FilePath.res_path)
+        
         setLogLevel("info")
         topo = self.datacenter.dc_topo
         net = self.net

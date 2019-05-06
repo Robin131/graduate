@@ -50,3 +50,6 @@ class SimulateFlowParameter(object):
 class ThreadParameter(object):
     max_num = 5
     thread_sleep_time = 0.02
+
+class FilePath(object):
+    res_path = '../Data/server_res'
