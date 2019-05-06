@@ -65,7 +65,7 @@ class Datacenter(object):
                 switch = Switch(name=switch_name, id=i+1, ip=ip, mac=mac, dc_id=self.datacenter_id)
                 self.switches.append(switch)
             return
-        elif topo_type == 'fullmesh':
+        elif topo_type == 'fullmesh' or topo_type == 'linear':
             if self.switch_density != density:
                 raise Errors.host_switch_conflict
             host_num = len(self.hosts)
