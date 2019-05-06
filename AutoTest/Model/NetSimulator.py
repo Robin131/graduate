@@ -60,16 +60,17 @@ class MininetSimulator(NetSimulator):
         topo = self.datacenter.dc_topo
 
         if controller is None:
-            self.net = Net(Switch=OVSSwitch, controller=Controller)
+            self.net = Net(switch=OVSSwitch, controller=Controller)
             self.net.addController('c0')
-        if controller["type"] == "remote":
-            self.net = Net(Switch=OVSSwitch, listenPort=controller["port"])
-            mycontroller = RemoteController("RemoteController")
-            self.net.controllers = [mycontroller]
-            self.net.nameToNode["RemoteController"] = mycontroller
         else:
-            self.net = Net(Switch=OVSSwitch, controller=Controller)
-            self.net.addController('c0')
+            if controller["type"] == "remote":
+                self.net = Net(switch=OVSSwitch, listenPort=controller["port"])
+                mycontroller = RemoteController("RemoteController")
+                self.net.controllers = [mycontroller]
+                self.net.nameToNode["RemoteController"] = mycontroller
+            else:
+                self.net = Net(switch=OVSSwitch, controller=Controller)
+                self.net.addController('c0')
         
         net = self.net
 
@@ -101,7 +102,7 @@ class MininetSimulator(NetSimulator):
             self.set_up_udp_listener()
             time.sleep(1)
             self.simulate_flow(minute=minute)
-            # net.stop()
+            net.stop()
 
     # 为所有的主机打开udp监听端口
     def set_up_udp_listener(self):

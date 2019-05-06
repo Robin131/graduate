@@ -15,7 +15,6 @@ class Net(Mininet):
         server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.t_id, h.id) + '&')
         return
 
-    # TODO 将结果存入文件
     def udp_flow(self, src, dst, size):
         client = self.get(src.name)
         server = self.get(dst.name)

@@ -195,7 +195,7 @@ class Network(object):
         if "controller" not in self.conf_dic.keys():
             raise Errors.conf_no_controller
         for _, dc in self.datacenters.items():
-            dc.set_controller(config_dic['controller'])
+            dc.set_controller(self.conf_dic['controller'])
         return
 
     '''
