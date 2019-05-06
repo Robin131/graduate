@@ -187,6 +187,9 @@ class FullMeshTopo(DC_Topo):
         return
 
 
+'''
+    测试用线性拓扑
+'''
 class LinearTopo(DC_Topo):
     def __init__(self, hosts, switches, gateways, density):
         super(LinearTopo, self).__init__(hosts, switches, gateways)
