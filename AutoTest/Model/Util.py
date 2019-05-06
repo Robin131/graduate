@@ -182,3 +182,8 @@ class Util(object):
                 Util.del_file(c_path)
             else:
                 os.remove(c_path)
+
+    @staticmethod
+    def file_is_in_path(file_name, path):
+        ls = os.listdir(path)
+        return file_name in ls

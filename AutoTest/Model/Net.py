@@ -3,7 +3,8 @@ import time
 import threading
 from mininet.net import Mininet
 
-from const import server_result_record
+from const import server_result_record, FilePath, client_result_record
+from Util import Util as U
 
 class Net(Mininet):
 
@@ -26,7 +27,11 @@ class Net(Mininet):
         print('*** start flow on {} ***'.format(src.name))
         print('src:{}, dst: {}, size:{}'.format(src.ip, dst.ip, size))
         st = time.time()
-        client.cmd(iperf_args + size_args + '-c ' + server.IP())
+        res_name = client_result_record(src.t_id, src.id)
+        if U.file_is_in_path(res_name, FilePath.client_res_path):
+            client.cmd(iperf_args + size_args + '-c ' + server.IP() + ' ' + '>> ' + res_name + '&')
+        else:
+            client.cmd(iperf_args + size_args + '-c ' + server.IP() + ' ' + '> ' + res_name + '&')
         et = time.time()
 
         print('--- consume time {} ---'.format(et - st))
