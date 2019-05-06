@@ -15,6 +15,14 @@ class Net(Mininet):
         server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.t_id, h.id) + '&')
         return
 
+    def set_default_gateway(self, h):
+        gw_ip = h.gw_ip
+        host = self.get(h.name)
+        print('*** set gw {} to host {}'.format(gw_ip, host.name))
+        host.cmd('route add default gw {}'.format(gw_ip))
+        return
+
+
     def udp_flow(self, src, dst, size):
         client = self.get(src.name)
         server = self.get(dst.name)

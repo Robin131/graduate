@@ -36,6 +36,7 @@ class Datacenter(object):
         self.flow_simulator = None
         self.simulator = None
         self.controller = None
+        self.gateway_ips = {}               # 每个子网的网关
 
     def __str__(self):
         res = 'Datacenter: %d\n tenant: [' %(self.datacenter_id)
@@ -100,6 +101,22 @@ class Datacenter(object):
             mac = self.mac_pool.get()
             g = Gateway(name=name, id=g_id, ip=ip, mac=mac, dc_id=self.datacenter_id)
             self.gateways.append(g)
+        return
+
+    # 生成各个子网的网关ip
+    def gen_gateway_ips(self):
+        for subnet_ip in self.subnets:
+            gw_ip = Util.get_gateway_ip(subnet_ip)
+            self.gateway_ips[subnet_ip] = gw_ip
+        return
+
+    # 为所有hosts分配网关
+    def allocate_gateway_2_hosts(self):
+        for h in self.hosts:
+            for subnet, gw_ip in self.gateway_ips.items():
+                if Util.is_in_subnet(h.ip, subnet):
+                    h.gw_ip = gw_ip
+                    break
         return
 
     # 生成数据流记录文件
@@ -176,8 +193,12 @@ class Datacenter(object):
             dict[t.tenant_id] = t.priority
         return dict
 
+    # 返回所有网段的ip
     def get_gateway_ips(self):
-        return [self.gateway_ip_pool.get_with_index(0)]
+        l = []
+        for _, gw_ip in self.gateway_ips:
+            l.append(gw_ip)
+        return l
 
     def get_potential_gateway(self):
         res = {}

@@ -92,6 +92,7 @@ class MininetSimulator(NetSimulator):
 
         if client:
             net.start()
+            self.set_default_gateway()
             # self.set_up_udp_listener()
             CLI(net)
             net.stop()
@@ -99,6 +100,7 @@ class MininetSimulator(NetSimulator):
         else:
             net.start()
             time.sleep(10)
+            self.set_default_gateway()
             self.set_up_udp_listener()
             time.sleep(1)
             
@@ -110,6 +112,13 @@ class MininetSimulator(NetSimulator):
         hosts = self.datacenter.hosts
         for h in hosts:
             self.net.set_up_udp_listener(h)
+        return
+
+    # 为所有的hosts设置网关ip
+    def set_default_gateway(self):
+        hosts = self.datacenter.hosts
+        for h in hosts:
+            self.net.set_default_gateway(h)
         return
 
     # 根据输入的流信息仿真流

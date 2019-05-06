@@ -187,3 +187,8 @@ class Util(object):
     def file_is_in_path(file_name, path):
         ls = os.listdir(path)
         return file_name in ls
+
+    @staticmethod
+    def get_gateway_ip(subnet_ip):
+        gateway_ip = subnet_ip.split('/')[0]
+        return gateway_ip

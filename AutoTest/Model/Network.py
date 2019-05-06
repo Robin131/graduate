@@ -23,7 +23,6 @@ class Network(object):
         self.mac_pool = None                # Pool of Mac
         self.net = None                     # Mininet instance
         self.hosts = []                     # host list
-        self.switches = []
 
         self.conf_file = conf
         self.conf_dic = {}
@@ -44,6 +43,7 @@ class Network(object):
         self.gen_mac_pool()
         self.gen_datacenters()
         self.gen_alter_ips()
+        self.gen_gateway_ips()
         self.gen_tenants()
         self.set_topo_type()
         self.gen_switch()
@@ -52,6 +52,7 @@ class Network(object):
         self.gen_outer_topo()
         self.allocate_dpid()
         self.set_controller()
+        self.allocate_gateway_2_hosts()
 
         # print(len(self.datacenters[1].gateways))
         # print(self.get_dc_statistics())
@@ -91,6 +92,14 @@ class Network(object):
         for id, ip in ips.items():
             id = int(id)
             self.alter_IP[id] = ip
+        for _, dc in self.datacenters.items():
+            dc.subnets = self.alter_IP.values()
+        return
+
+    # 使用每个网段的第一个ip作为网关ip地址
+    def gen_gateway_ips(self):
+        for _, dc in self.datacenters.items():
+            dc.gen_gateway_ips()
         return
 
     # 生成租户
@@ -196,6 +205,12 @@ class Network(object):
             raise Errors.conf_no_controller
         for _, dc in self.datacenters.items():
             dc.set_controller(self.conf_dic['controller'])
+        return
+
+    # 为hosts设置网关
+    def allocate_gateway_2_hosts(self):
+        for _, dc in self.datacenters.items():
+            dc.allocate_gateway_2_hosts()
         return
 
     '''

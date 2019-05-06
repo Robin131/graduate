@@ -56,10 +56,11 @@ class ConnectDevice(Device):
     Host类
 '''
 class Host(Device):
-    def __init__(self, name, id, ip, mac, dc_id, t_id=0):
+    def __init__(self, name, id, ip, mac, dc_id, t_id=0, gw_ip=''):
         super(Host, self).__init__(name, id, ip, mac, dc_id)
 
         self.t_id = t_id
+        self.gw_ip = gw_ip
 
     def __str__(self):
         sup = super(Host, self).__str__()
