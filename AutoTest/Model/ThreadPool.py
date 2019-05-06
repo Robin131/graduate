@@ -10,6 +10,7 @@ from const import ThreadParameter
 '''
     线程池类
 '''
+# 多个线程取任务
 class ThreadPool(object):
     def __init__(self, thread_num):
         self.thread_num = thread_num
