@@ -28,8 +28,8 @@ class Net(Mininet):
         print('src:{}, dst: {}, size:{}'.format(src.ip, dst.ip, size))
         st = time.time()
         res_name = client_result_record(src.t_id, src.id)
-        if U.file_is_in_path(res_name, FilePath.client_res_path):
-            print('===================exist')
+        file_name = res_name.split('/')[-1]
+        if U.file_is_in_path(file_name, FilePath.client_res_path):
             client.cmd(iperf_args + size_args + '-c ' + server.IP() + ' ' + '>> ' + res_name + '&')
         else:
             client.cmd(iperf_args + size_args + '-c ' + server.IP() + ' ' + '> ' + res_name + '&')

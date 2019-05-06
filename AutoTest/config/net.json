@@ -1,5 +1,6 @@
 {
   "name": "testNet",
+  "controller": 'remote',
     "datacenters": [
         1, 2
     ],
@@ -29,7 +30,7 @@
                 ]
            }
     },
-    "topo_type": ["fullmesh", 3],
+    "topo_type": ["linear", 3],
     "mac_num": 3000,
     "hosts_per_gateway": 5,
     "hosts_per_switch": 3,
