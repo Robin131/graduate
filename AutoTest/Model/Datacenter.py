@@ -196,7 +196,7 @@ class Datacenter(object):
     # 返回所有网段的ip
     def get_gateway_ips(self):
         l = []
-        for _, gw_ip in self.gateway_ips:
+        for _, gw_ip in self.gateway_ips.items():
             l.append(gw_ip)
         return l
 
@@ -214,7 +214,7 @@ class Datacenter(object):
     '''
     def set_up_mininet(self, client, minute=1):
         self.simulator = MininetSimulator(self)
-        self.simulator.simulate(client=client, minute=minute)
+        self.simulator.simulate(controller=self.controller, client=client, minute=minute)
         return
 
 

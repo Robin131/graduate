@@ -1,7 +1,7 @@
 {
   "name": "testNet",
   "controller": {
-    "type": "local",
+    "type": "remote",
     "port": 6633
   },
   "datacenters": [
