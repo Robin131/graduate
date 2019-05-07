@@ -69,6 +69,10 @@ class MininetSimulator(NetSimulator):
         # 删除上一次的测试文件
         U.del_file(FilePath.res_path)
 
+        print('*****************************************')
+        print('******     NET is establishing     ******')
+        print('*****************************************')
+
         setLogLevel("info")
         topo = self.datacenter.dc_topo
 
@@ -112,11 +116,39 @@ class MininetSimulator(NetSimulator):
             net.stop()
             return
         else:
+
             net.start()
-            time.sleep(10)
+            print('*****************************************')
+            print('*** NET has been successfully created ***')
+            print('*****************************************')
+
+
+            wait_time = 5
+            print('***  please wait for {} ses to start  ***'.format(wait_time))
+
+            time.sleep(wait_time)
+
+
             self.set_default_gateway()
+            print('*****************************************')
+            print('***       Start to do Ping test       ***')
+            print('*****************************************')
+
+            if self.ping_all():
+                print('*****************************************')
+                print('******       Pass Ping test       *******')
+                print('*****************************************')
+            else:
+                print('*****************************************')
+                print('******       Fail Ping test       *******')
+                print('*****************************************')
+
+            print('*****************************************')
+            print('*****       Start to simulate       *****')
+            print('*****************************************')
             self.set_up_udp_listener()
-            time.sleep(1)
+
+            time.sleep(2)
             
             self.simulate_flow(minute=minute)
             net.stop()
@@ -194,7 +226,7 @@ class MininetSimulator(NetSimulator):
                 elif link_type == LinkType.gg_link:
                     bw = LinkBandWidth.gateway_gateway_bw
 
-            print('{} -- {} with port {} -- {}'.format(node1.name, node2.name, node1_port, node2_port))
+            # print('{} -- {} with port {} -- {}'.format(node1.name, node2.name, node1_port, node2_port))
             self.net.addLink(node1.name, node2.name, node1_port, node2_port, cls=self.link_type, bw=bw)
             return
 
@@ -220,14 +252,11 @@ class MininetSimulator(NetSimulator):
             for subnet, _hosts in subnet_host_dic.items():
                 local_host_group.append(_hosts)
 
-        print('=================')
-        print(local_host_group)
-
         # 至此local_host_group 包含了所有可通信的host列表
-        #for hs in local_host_group:
-        #    self.net.ping_hosts(hs)
-
-        return
+        status = True
+        for hs in local_host_group:
+            status =  status and self.net.ping_hosts(hs)
+        return status
 
 
 

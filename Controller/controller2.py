@@ -343,7 +343,7 @@ class Controller(app_manager.RyuApp):
         return
 
     def init_controller(self):
-        hub.sleep(9)
+        hub.sleep(25)
 
         # test part
         print('start to init')

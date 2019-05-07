@@ -1,0 +1,66 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.17 port 5001 connected with 10.0.0.37 port 57241
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.1 sec  17.2 KBytes  1.55 Mbits/sec  41.564 ms   11/   23 (48%)
+[  3] 0.00-0.09 sec  3 datagrams received out-of-order
+[  4] local 10.0.0.17 port 5001 connected with 10.0.0.37 port 57241
+[  4]  0.0- 0.2 sec  2.87 KBytes   153 Kbits/sec   0.066 ms   19/   21 (90%)
+[  3] local 10.0.0.17 port 5001 connected with 10.0.0.24 port 40511
+[  3]  0.0- 1.0 sec  38.8 KBytes   318 Kbits/sec  22.748 ms    0/   27 (0%)
+[  3] 0.00-1.00 sec  2 datagrams received out-of-order
+[  3]  1.0- 2.0 sec  56.0 KBytes   459 Kbits/sec  16.691 ms    0/   39 (0%)
+[  3]  2.0- 3.0 sec  45.9 KBytes   376 Kbits/sec  19.204 ms    0/   32 (0%)
+[  3]  0.0- 3.7 sec   168 KBytes   374 Kbits/sec  19.550 ms    0/  117 (0%)
+[  3] 0.00-3.68 sec  2 datagrams received out-of-order
+[  4] local 10.0.0.17 port 5001 connected with 10.0.0.42 port 44413
+[  4]  0.0- 0.7 sec  30.1 KBytes   339 Kbits/sec  15.604 ms    0/   21 (0%)
+[  5] local 10.0.0.17 port 5001 connected with 10.0.0.23 port 45642
+[  5]  0.0- 0.3 sec  11.5 KBytes   298 Kbits/sec  26.311 ms   18/   26 (69%)
+[  3] local 10.0.0.17 port 5001 connected with 10.0.0.23 port 45642
+[  5] local 10.0.0.17 port 5001 connected with 10.0.0.4 port 40131
+[  5]  0.0- 0.2 sec  8.61 KBytes   300 Kbits/sec   7.338 ms    0/    6 (0%)
+[  3]  0.0- 0.5 sec  11.5 KBytes   195 Kbits/sec  17.199 ms   16/   24 (67%)
+[  3] 0.00-0.48 sec  1 datagrams received out-of-order
+[  6] local 10.0.0.17 port 5001 connected with 10.0.0.52 port 54780
+[  6]  0.0- 0.1 sec  2.87 KBytes   454 Kbits/sec   1.486 ms    1/    3 (33%)
+[  3] local 10.0.0.17 port 5001 connected with 10.0.0.35 port 32773
+[  3]  0.0- 0.3 sec  14.4 KBytes   421 Kbits/sec   6.793 ms    3/   13 (23%)
+[  4] local 10.0.0.17 port 5001 connected with 10.0.0.20 port 59622
+[  4]  0.0- 0.1 sec  2.87 KBytes   367 Kbits/sec   0.969 ms    1/    3 (33%)
+[  5] local 10.0.0.17 port 5001 connected with 10.0.0.20 port 59622
+[  5]  0.0- 1.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  3] local 10.0.0.17 port 5001 connected with 10.0.0.45 port 38509
+[  3]  0.0- 0.2 sec  1.44 KBytes  59.3 Kbits/sec   0.000 ms    7/    8 (88%)
+[  5]  1.0- 2.0 sec  1.44 KBytes  11.8 Kbits/sec   0.000 ms 2147483641/2147483642 (1e+02%)
+[  5]  2.0- 3.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  3.0- 4.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  4] local 10.0.0.17 port 5001 connected with 10.0.0.32 port 40333
+[  4]  0.0- 0.2 sec  7.18 KBytes   375 Kbits/sec   6.807 ms    0/    5 (0%)
+[  4] 0.00-0.16 sec  1 datagrams received out-of-order
+[  5]  4.0- 5.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  5.0- 6.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  6.0- 7.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  7.0- 8.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  8.0- 9.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  9.0-10.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  3] local 10.0.0.17 port 5001 connected with 10.0.0.30 port 54193
+[  5] 10.0-11.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  3]  0.0- 0.9 sec  20.1 KBytes   184 Kbits/sec  45.096 ms    7/   21 (33%)
+[  3] 0.00-0.90 sec  2 datagrams received out-of-order
+[  5] 11.0-12.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 12.0-13.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 13.0-14.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 14.0-15.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 15.0-16.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 16.0-17.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 17.0-18.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 18.0-19.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 19.0-20.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 20.0-21.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 21.0-22.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 22.0-23.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  0.0-23.9 sec  1.44 KBytes   492 bits/sec   0.000 ms 2147483641/2147483642 (0%)

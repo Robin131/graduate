@@ -1,0 +1,31 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.52 port 5001 connected with 10.0.0.6 port 41231
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.1 sec  11.5 KBytes  1.38 Mbits/sec   1.402 ms    0/    8 (0%)
+[  3] 0.00-0.07 sec  1 datagrams received out-of-order
+[  4] local 10.0.0.52 port 5001 connected with 10.0.0.4 port 46675
+[  4]  0.0- 0.6 sec  23.0 KBytes   322 Kbits/sec  15.816 ms    0/   16 (0%)
+[  5] local 10.0.0.52 port 5001 connected with 10.0.0.53 port 50254
+[  5]  0.0- 0.3 sec  45.9 KBytes  1.23 Mbits/sec   3.951 ms    0/   32 (0%)
+[  5] 0.00-0.31 sec  4 datagrams received out-of-order
+[  3] local 10.0.0.52 port 5001 connected with 10.0.0.44 port 47590
+[  3]  0.0- 0.1 sec  17.2 KBytes  1.95 Mbits/sec  29.803 ms    0/   12 (0%)
+[  3] 0.00-0.07 sec  5 datagrams received out-of-order
+[  4] local 10.0.0.52 port 5001 connected with 10.0.0.17 port 34706
+[  5] local 10.0.0.52 port 5001 connected with 10.0.0.36 port 52475
+[  5]  0.0- 0.9 sec  41.6 KBytes   363 Kbits/sec  23.431 ms   40/   69 (58%)
+[  4]  0.0- 1.0 sec  21.5 KBytes   179 Kbits/sec  42.008 ms   12/   27 (44%)
+[  6] local 10.0.0.52 port 5001 connected with 10.0.0.4 port 41865
+[  6]  0.0- 0.6 sec  8.61 KBytes   124 Kbits/sec  20.831 ms    8/   14 (57%)
+[  3] local 10.0.0.52 port 5001 connected with 10.0.0.5 port 40486
+[  3]  0.0- 0.9 sec  24.4 KBytes   225 Kbits/sec  28.188 ms    5/   22 (23%)
+[  3] 0.00-0.89 sec  1 datagrams received out-of-order
+[  4] local 10.0.0.52 port 5001 connected with 10.0.0.45 port 56790
+[  4]  0.0- 0.6 sec  5.74 KBytes  72.5 Kbits/sec  34.697 ms    0/    3 (0%)
+[  4] 0.00-0.65 sec  2 datagrams received out-of-order
+[  5] local 10.0.0.52 port 5001 connected with 10.0.0.14 port 59578
+[  5]  0.0- 0.2 sec  7.18 KBytes   253 Kbits/sec   8.610 ms    0/    5 (0%)

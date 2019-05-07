@@ -70,9 +70,6 @@ class FlowGenerator(object):
         self.divide_hosts()
         self.model = self.set_flow_model()
 
-        print('===============')
-        print(self.host_dic)
-
     # 根据租户及其不同子网划分host
     def divide_hosts(self):
         host_dic = self.host_dic
