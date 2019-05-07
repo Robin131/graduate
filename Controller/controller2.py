@@ -68,7 +68,7 @@ class Controller(app_manager.RyuApp):
         self.gateways_datacenter_port = conf.gateway_datacenter_port
 
         # record all potential gateway_ip
-        # datacenter_id -> [gateway_ip]
+        # datacenter_id -> [gateway_ip]s
         self.gateway_ip = conf.gateway_ip
 
         # record speed for tenant
