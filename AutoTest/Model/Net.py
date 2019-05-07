@@ -11,14 +11,14 @@ class Net(Mininet):
     def set_up_udp_listener(self, h):
         iperf_args = 'iperf -u '
         server = self.get(h.name)
-        print('*** start server on {}***'.format(h.name))
+        # print('*** start server on {}***'.format(h.name))
         server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.t_id, h.id) + '&')
         return
 
     def set_default_gateway(self, h):
         gw_ip = h.gw_ip
         host = self.get(h.name)
-        print('*** set gw {} to host {}'.format(gw_ip, host.name))
+        # print('*** set gw {} to host {}'.format(gw_ip, host.name))
         host.cmd('route add default gw {}'.format(gw_ip))
         return
 
@@ -31,8 +31,8 @@ class Net(Mininet):
         size_args = '-n ' + str(size) + ' '
         period_args = '-t 1 '
 
-        print('*** start flow on {} ***'.format(src.name))
-        print('src:{}, dst: {}, size:{}'.format(src.ip, dst.ip, size))
+        print('*** start flow on {} to {} with size {}***'.format(src.name, dst.name, size))
+        # print('src:{}, dst: {}, size:{}'.format(src.ip, dst.ip, size))
         st = time.time()
         res_name = client_result_record(src.t_id, src.id)
         file_name = res_name.split('/')[-1]
@@ -42,7 +42,7 @@ class Net(Mininet):
             client.cmd(iperf_args + size_args + '-c ' + server.IP() + ' ' + '> ' + res_name + '&')
         et = time.time()
 
-        print('--- consume time {} ---'.format(et - st))
+        # print('--- consume time {} ---'.format(et - st))
 
         return
 
@@ -50,6 +50,7 @@ class Net(Mininet):
     def ping_hosts(self, hosts):
         assert len(hosts) > 0
         packets = 0
+        status = True
         for h in hosts:
             node = self.get(h.name)
             print('%s -> ' % h.name),
@@ -62,12 +63,16 @@ class Net(Mininet):
                     else:
                         sent, received = 0, 0
                     packets += sent
-                    print(('%s' % dst_node.name) if received else 'X')
+                    if received:
+                        print('V'),
+                    else:
+                        print('%s' % dst_node.name)
+                        status = False
             print()
         if packets == 0:
             print('*** Warning: No packet sent')
 
-        return
+        return status
 
 
 

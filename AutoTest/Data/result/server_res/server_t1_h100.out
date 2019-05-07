@@ -1,0 +1,59 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.55 port 5001 connected with 10.0.0.6 port 51742
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.2 sec  21.5 KBytes  1.14 Mbits/sec   0.212 ms    0/   15 (0%)
+[  4] local 10.0.0.55 port 5001 connected with 10.0.0.53 port 53024
+[  4]  0.0- 0.1 sec  7.18 KBytes   480 Kbits/sec   1.947 ms    0/    5 (0%)
+[  3] local 10.0.0.55 port 5001 connected with 10.0.0.44 port 43445
+[  3]  0.0- 0.4 sec  60.3 KBytes  1.25 Mbits/sec  14.011 ms    0/   42 (0%)
+[  3] 0.00-0.40 sec  6 datagrams received out-of-order
+[  4] local 10.0.0.55 port 5001 connected with 10.0.0.45 port 46810
+[  4]  0.0- 0.1 sec  4.31 KBytes   535 Kbits/sec   1.709 ms    0/    3 (0%)
+[  3] local 10.0.0.55 port 5001 connected with 10.0.0.21 port 35486
+[  3]  0.0- 0.1 sec  17.2 KBytes  1.19 Mbits/sec   1.730 ms    0/   12 (0%)
+[  3] 0.00-0.12 sec  1 datagrams received out-of-order
+[  5] local 10.0.0.55 port 5001 connected with 10.0.0.24 port 54269
+[  5]  0.0- 0.1 sec  15.8 KBytes  1.11 Mbits/sec   0.005 ms    0/   11 (0%)
+[  6] local 10.0.0.55 port 5001 connected with 10.0.0.48 port 54044
+[  3] local 10.0.0.55 port 5001 connected with 10.0.0.44 port 33179
+[  3]  0.0- 0.1 sec  2.87 KBytes   189 Kbits/sec   2.450 ms    0/    2 (0%)
+[  6]  0.0- 1.0 sec  28.7 KBytes   239 Kbits/sec  29.273 ms   14/   34 (41%)
+[  4] local 10.0.0.55 port 5001 connected with 10.0.0.47 port 36864
+[  3] local 10.0.0.55 port 5001 connected with 10.0.0.14 port 39678
+[  3]  0.0- 0.1 sec  5.74 KBytes   352 Kbits/sec   5.141 ms    1/    5 (20%)
+[  4]  0.0- 0.2 sec  1.44 KBytes  52.7 Kbits/sec   0.000 ms    0/    0 (-nan%)
+[  4] 0.00-0.22 sec  1 datagrams received out-of-order
+[  5] local 10.0.0.55 port 5001 connected with 10.0.0.14 port 39678
+[  3] local 10.0.0.55 port 5001 connected with 10.0.0.17 port 55690
+[  5]  0.0- 1.0 sec  1.44 KBytes  11.8 Kbits/sec   0.000 ms 2147483643/2147483644 (1e+02%)
+[  4] local 10.0.0.55 port 5001 connected with 10.0.0.4 port 46714
+[  6] local 10.0.0.55 port 5001 connected with 10.0.0.4 port 34670
+[  5]  1.0- 2.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  3]  0.0- 1.0 sec  43.1 KBytes   353 Kbits/sec  41.762 ms   19/   49 (39%)
+[  3]  0.0- 1.5 sec  43.1 KBytes   242 Kbits/sec  41.762 ms   19/   49 (39%)
+[  6]  0.0- 1.0 sec  23.0 KBytes   188 Kbits/sec  32.551 ms    2/   18 (11%)
+[  4]  0.0- 1.0 sec  24.4 KBytes   200 Kbits/sec  32.651 ms    2/   19 (11%)
+[SUM]  0.0- 1.0 sec  47.4 KBytes   388 Kbits/sec  32.651 ms    4/   37 (11%)
+[  5]  2.0- 3.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  6]  0.0- 1.3 sec  25.8 KBytes   162 Kbits/sec  44.884 ms    1/   19 (5.3%)
+[  6] 0.00-1.31 sec  1 datagrams received out-of-order
+[  4]  0.0- 1.8 sec  34.5 KBytes   157 Kbits/sec  57.939 ms    5/   29 (17%)
+[SUM]  0.0- 1.8 sec  60.3 KBytes   274 Kbits/sec  57.939 ms    6/   48 (12%)
+[SUM] 0.00-1.80 sec  1 datagrams received out-of-order
+[  5]  3.0- 4.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  4.0- 5.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  5.0- 6.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  6.0- 7.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  7.0- 8.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  8.0- 9.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  9.0-10.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 10.0-11.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 11.0-12.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 12.0-13.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 13.0-14.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5] 14.0-15.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  5]  0.0-15.9 sec  1.44 KBytes   740 bits/sec   0.000 ms 2147483643/2147483644 (0%)
