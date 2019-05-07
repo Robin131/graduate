@@ -35,6 +35,19 @@ class NetSimulator(object):
     def simulate(self):
         pass
 
+    # 获得属于同一个tenant的host组
+    def get_tenant_hosts(self):
+        dc = self.datacenter
+        tenants = dc.tenants
+        t_num = len(tenants)
+        res = {}
+        for h in self.datacenter.hosts:
+            if h.t_id in res.keys():
+                res[h.t_id].append(h)
+            else:
+                res[h.t_id] = []
+        return res
+
 class MininetSimulator(NetSimulator):
     def __init__(self, datacenter):
         super(MininetSimulator, self).__init__(datacenter)
@@ -93,6 +106,7 @@ class MininetSimulator(NetSimulator):
         if client:
             net.start()
             self.set_default_gateway()
+            self.ping_all()
             # self.set_up_udp_listener()
             CLI(net)
             net.stop()
@@ -186,4 +200,34 @@ class MininetSimulator(NetSimulator):
 
         # TODO 增加NAT连接
         return
+
+    # 测试用ping all指令(仅测试能通信的机器对)
+    # 目前仅支持同数据中心的机器测试
+    def ping_all(self):
+        # 同域同子网
+        local_host_group = []
+        t_hosts = self.get_tenant_hosts()
+        for t_id, hosts in t_hosts.items():
+            tenant = self.datacenter.get_tenant(t_id)
+            subnet_host_dic = {}
+            assert tenant is not None
+            for ip in tenant.subnet:
+                subnet_host_dic[ip] = []
+            for h in hosts:
+                for subnet in subnet_host_dic.keys():
+                    if U.is_in_subnet(h.ip, subnet):
+                        subnet_host_dic[subnet].append(h)
+            for subnet, _hosts in subnet_host_dic.items():
+                local_host_group.append(_hosts)
+
+        print('=================')
+        print(local_host_group)
+
+        # 至此local_host_group 包含了所有可通信的host列表
+        #for hs in local_host_group:
+        #    self.net.ping_hosts(hs)
+
+        return
+
+
 

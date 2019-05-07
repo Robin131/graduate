@@ -45,3 +45,35 @@ class Net(Mininet):
         print('--- consume time {} ---'.format(et - st))
 
         return
+
+    # 给定hosts集合，查看其是否均能两两ping通
+    def ping_hosts(self, hosts):
+        assert len(hosts) > 0
+        packets = 0
+        lost = 0
+        ploss = None
+        for h in hosts:
+            node = self.get(h.name)
+            print('%s -> ' % h.name),
+            for dst in hosts:
+                dst_node = self.get(dst.name)
+                if node != dst:
+                    if dst_node.intfs:
+                        result = node.cmd('ping -c 1 %s' % dst_node.IP())
+                        sent, received = self._parsePing(result)
+                    else:
+                        sent, received = 0, 0
+                    packets += sent
+                    assert(sent <= received)
+                    lost += sent - received
+                    print(('%s' % dst_node.name) if received else 'X')
+            print()
+        if packets > 0:
+            ploss = 100.0 * lost / packets
+        else:
+            print('*** Warning: No packet sent')
+            ploss = 0
+        return ploss
+
+
+

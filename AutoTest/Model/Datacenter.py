@@ -209,6 +209,12 @@ class Datacenter(object):
                 res[dpid] = {dc_id: port_no}
         return res
 
+    def get_tenant(self, t_id):
+        for t in self.tenants:
+            if t.tenant_id == t_id:
+                return t
+        return None
+
     '''
         Methods to simulate networks
     '''
