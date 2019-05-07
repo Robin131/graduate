@@ -50,8 +50,6 @@ class Net(Mininet):
     def ping_hosts(self, hosts):
         assert len(hosts) > 0
         packets = 0
-        lost = 0
-        ploss = None
         for h in hosts:
             node = self.get(h.name)
             print('%s -> ' % h.name),
@@ -64,16 +62,12 @@ class Net(Mininet):
                     else:
                         sent, received = 0, 0
                     packets += sent
-                    assert(sent <= received)
-                    lost += sent - received
                     print(('%s' % dst_node.name) if received else 'X')
             print()
-        if packets > 0:
-            ploss = 100.0 * lost / packets
-        else:
+        if packets == 0:
             print('*** Warning: No packet sent')
-            ploss = 0
-        return ploss
+
+        return
 
 
 
