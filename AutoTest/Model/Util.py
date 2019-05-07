@@ -61,7 +61,8 @@ class Util(object):
         def ip_format(_1, _2, _3, _4):
             return str(_1) + '.' + str(_2) + '.' + str(_3) + '.' + str(_4)
 
-        _1, _2, _3, _4 = int(_[0]), int(_[1]), int(_[2]), int(_[3])
+        # 最后一位从1开始，为网关预留
+        _1, _2, _3, _4 = int(_[0]), int(_[1]), int(_[2]), int(_[3]) + 1
         for i in xrange(1, max_mac_num + 1):
             if _4 != 255:
                 ip.append(ip_format(_1, _2, _3, _4 + 1))
@@ -190,5 +191,8 @@ class Util(object):
 
     @staticmethod
     def get_gateway_ip(subnet_ip):
-        gateway_ip = subnet_ip.split('/')[0]
+        base_ip = subnet_ip.split('/')[0]
+        _ = base_ip.split('.')
+        _1, _2, _3, _4 = _[0], _[1], _[2], _[3]
+        gateway_ip = _1 + '.' + _2 + '.' + _3 + '.' + str(int(_4) + 1)
         return gateway_ip

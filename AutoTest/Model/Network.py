@@ -96,7 +96,7 @@ class Network(object):
             dc.subnets = self.alter_IP.values()
         return
 
-    # 使用每个网段的第一个ip作为网关ip地址
+    # 使用每个网段的第一个ip作为网关ip地址，如10.0.0.1
     def gen_gateway_ips(self):
         for _, dc in self.datacenters.items():
             dc.gen_gateway_ips()
