@@ -72,7 +72,7 @@ class MininetSimulator(NetSimulator):
         print('*****************************************')
         print('******     NET is establishing     ******')
         print('*****************************************')
-
+        print
         setLogLevel("info")
         topo = self.datacenter.dc_topo
 
@@ -121,11 +121,11 @@ class MininetSimulator(NetSimulator):
             print('*****************************************')
             print('*** NET has been successfully created ***')
             print('*****************************************')
-
+            print
 
             wait_time = 5
             print('***  please wait for {} ses to start  ***'.format(wait_time))
-
+            print
             time.sleep(wait_time)
 
 
@@ -133,19 +133,22 @@ class MininetSimulator(NetSimulator):
             print('*****************************************')
             print('***       Start to do Ping test       ***')
             print('*****************************************')
-
+            print
             if self.ping_all():
                 print('*****************************************')
                 print('******       Pass Ping test       *******')
                 print('*****************************************')
+                print
             else:
                 print('*****************************************')
                 print('******       Fail Ping test       *******')
                 print('*****************************************')
+                print
 
             print('*****************************************')
             print('*****       Start to simulate       *****')
             print('*****************************************')
+            print
             self.set_up_udp_listener()
 
             time.sleep(2)
