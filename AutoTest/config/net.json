@@ -1,7 +1,7 @@
 {
   "name": "testNet",
   "controller": {
-    "type": "remote",
+    "type": "local",
     "port": 6633
   },
   "datacenters": [
@@ -13,7 +13,7 @@
   },
   "tenant": {
     "1": {
-      "host_num": 10,
+      "host_num": 100,
       "priority": "HIGH",
       "alter_ip": [
         1, 2
@@ -23,7 +23,7 @@
       ]
     },
     "2": {
-      "host_num": 10,
+      "host_num": 56,
       "priority": "LOW",
       "alter_ip": [
         2
@@ -31,12 +31,22 @@
       "datacenters": [
         1, 2
       ]
+    },
+    "3":{
+      "host_num": 70,
+      "priority": "HIGH",
+      "alter_ip": [
+        1, 2
+      ],
+      "datacenters": [
+        1, 2
+      ]
     }
   },
-  "topo_type": ["linear", 3],
+  "topo_type": ["linear", 15],
   "mac_num": 3000,
-  "hosts_per_gateway": 5,
-  "hosts_per_switch": 3,
+  "hosts_per_gateway": 30,
+  "hosts_per_switch": 15,
   "switch_ip": "131.0.0.0/16",
   "gateway_ip": "132.0.0.0/16"
 }
