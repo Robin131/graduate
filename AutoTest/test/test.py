@@ -1,43 +1,29 @@
-def ping(self, hosts=None, timeout=None):
-    """Ping between all specified hosts.
-       hosts: list of hosts
-       timeout: time to wait for a response, as string
-       returns: ploss packet loss percentage"""
-    # should we check if running?
-    packets = 0
-    lost = 0
-    ploss = None
-    if not hosts:
-        hosts = self.hosts
-        output('*** Ping: testing ping reachability\n')
-    for node in hosts:
-        output('%s -> ' % node.name)
-        for dest in hosts:
-            if node != dest:
-                opts = ''
-                if timeout:
-                    opts = '-W %s' % timeout
-                if dest.intfs:
-                    result = node.cmd('ping -c1 %s %s' %
-                                      (opts, dest.IP()))
-                    sent, received = self._parsePing(result)
+import re
+from AutoTest.Model.const import FilePath
+import os
+
+
+if __name__ == '__main__':
+
+    pkt_loss_arg = r'([0-9]+)\ *\/\ *([0-9]+)'
+    pkt_received = 0
+    pkt_sent = 0
+
+    serv_path = FilePath.server_res_path
+    ls = os.listdir(serv_path)
+
+    for file in ls:
+        if os.path.isdir(file):
+            continue
+        file = serv_path + '/' + file
+        with open(file, 'r') as f:
+            raw = f.readlines()
+            for line in raw:
+                result = re.search(pkt_loss_arg, line)
+                if result:
+                    pkt_received += int(result.group(1))
+                    pkt_sent += int(result.group(2))
                 else:
-                    sent, received = 0, 0
-                packets += sent
-                if received > sent:
-                    error('*** Error: received too many packets')
-                    error('%s' % result)
-                    node.cmdPrint('route')
-                    exit(1)
-                lost += sent - received
-                output(('%s ' % dest.name) if received else 'X ')
-        output('\n')
-    if packets > 0:
-        ploss = 100.0 * lost / packets
-        received = packets - lost
-        output("*** Results: %i%% dropped (%d/%d received)\n" %
-               (ploss, received, packets))
-    else:
-        ploss = 0
-        output("*** Warning: No packets sent\n")
-    return ploss
+                    continue
+    pkt_loss = (pkt_sent - pkt_received) / float(pkt_sent)
+    print(pkt_loss)
