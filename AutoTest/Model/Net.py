@@ -12,7 +12,7 @@ class Net(Mininet):
         iperf_args = 'iperf -u '
         server = self.get(h.name)
         # print('*** start server on {}***'.format(h.name))
-        server.cmd(iperf_args + '-s -i 1 ' + '> ' + server_result_record(h.t_id, h.id) + '&')
+        server.cmd(iperf_args + '-s ' + '> ' + server_result_record(h.t_id, h.id) + '&')
         return
 
     def set_default_gateway(self, h):
