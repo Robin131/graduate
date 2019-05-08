@@ -1,0 +1,36 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.3 port 5001 connected with 10.0.0.18 port 59913
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.1 sec  23.0 KBytes  1.81 Mbits/sec  36.119 ms    2/   18 (11%)
+[  3] 0.00-0.10 sec  4 datagrams received out-of-order
+[  4] local 10.0.0.3 port 5001 connected with 10.0.0.48 port 44825
+[  3] local 10.0.0.3 port 5001 connected with 10.0.0.48 port 45271
+[  4]  0.0- 0.1 sec  10.0 KBytes   809 Kbits/sec   2.136 ms    0/    7 (0%)
+[  5] local 10.0.0.3 port 5001 connected with 10.0.0.16 port 39672
+[  5]  0.0- 0.0 sec  1.44 KBytes  1.80 Mbits/sec   0.000 ms    0/    1 (0%)
+[  3]  0.0- 0.9 sec  90.4 KBytes   829 Kbits/sec   7.562 ms    0/   63 (0%)
+[SUM]  0.0- 0.9 sec   100 KBytes   921 Kbits/sec   7.562 ms    0/   70 (0%)
+[  6] local 10.0.0.3 port 5001 connected with 10.0.0.16 port 39672
+[  5] local 10.0.0.3 port 5001 connected with 10.0.0.23 port 41410
+[  5]  0.0- 0.0 sec  4.31 KBytes  1.63 Mbits/sec   0.370 ms    0/    3 (0%)
+[  3] local 10.0.0.3 port 5001 connected with 10.0.0.6 port 50330
+[  3]  0.0- 0.3 sec  7.18 KBytes   193 Kbits/sec  22.032 ms    6/   11 (55%)
+[  3] 0.00-0.31 sec  1 datagrams received out-of-order
+[  4] local 10.0.0.3 port 5001 connected with 10.0.0.6 port 50330
+[  4]  0.0- 0.6 sec  2.87 KBytes  40.2 Kbits/sec  30.646 ms    4/    6 (67%)
+[  4] 0.00-0.58 sec  1 datagrams received out-of-order
+[  6]  0.0-20.4 sec  2.87 KBytes  1.15 Kbits/sec   0.000 ms 2147483643/2147483645 (0%)
+[  6] 0.00-20.39 sec  1 datagrams received out-of-order
+[  3] local 10.0.0.3 port 5001 connected with 10.0.0.31 port 51775
+[  3]  0.0- 0.4 sec  8.61 KBytes   186 Kbits/sec  14.224 ms    4/   10 (40%)
+[  3] 0.00-0.38 sec  1 datagrams received out-of-order
+[  4] local 10.0.0.3 port 5001 connected with 10.0.0.40 port 44656
+[  3] local 10.0.0.3 port 5001 connected with 10.0.0.23 port 37952
+[  3]  0.0- 0.0 sec  1.44 KBytes   245 Kbits/sec   0.000 ms    1/    2 (50%)
+[  4]  0.0- 1.6 sec  40.2 KBytes   205 Kbits/sec  48.664 ms   96/  124 (77%)
+[  5] local 10.0.0.3 port 5001 connected with 10.0.0.26 port 49271
+[  5]  0.0- 0.3 sec  43.1 KBytes  1.25 Mbits/sec   3.271 ms    0/   30 (0%)

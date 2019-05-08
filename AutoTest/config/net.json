@@ -23,10 +23,10 @@
       ]
     }
   },
-  "topo_type": ["linear", 15],
+  "topo_type": ["linear", 10],
   "mac_num": 3000,
-  "hosts_per_gateway": 30,
-  "hosts_per_switch": 15,
+  "hosts_per_gateway": 50,
+  "hosts_per_switch": 10,
   "switch_ip": "131.0.0.0/16",
   "gateway_ip": "132.0.0.0/16"
 }

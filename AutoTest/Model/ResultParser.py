@@ -34,21 +34,21 @@ class MultiThreadOutFileResultParser(ResultParser):
         for file in ls:
             if os.path.isdir(file):
                 continue
+            file = self.sever_path + '/' + file
             with open(file, 'r') as f:
                 raw = f.readlines()
                 for line in raw:
                     result = re.search(pkt_loss_arg, line)
-                    if result.groups():
-                        sent = result.group(1)
-                        received = result.group(2)
-                        # 异常数据跳过
+                    if result:
+                        sent = int(result.group(2))
+                        received = sent - int(result.group(1))
                         if sent >= max_pkt:
                             continue
                         pkt_sent += sent
                         pkt_received += received
                     else:
                         continue
-        pkt_loss = pkt_sent - pkt_received / pkt_sent
+        pkt_loss = (pkt_sent - pkt_received) / float(pkt_sent)
         return pkt_loss
 
 
