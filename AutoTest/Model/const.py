@@ -55,3 +55,7 @@ class FilePath(object):
     res_path = '../Data/result'
     server_res_path = '../Data/result/server_res'
     client_res_path = '../Data/result/client_res'
+
+class IperfArg(object):
+    max_pkt = 1000000
+    

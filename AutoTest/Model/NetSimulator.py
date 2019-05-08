@@ -22,6 +22,7 @@ from Util import Util
 from Device import Host, Switch, Gateway
 from ThreadPool import ThreadPool
 from Util import Util as U
+from ResultParser import MultiThreadOutFileResultParser
 
 '''
     仿真网络层
@@ -60,11 +61,9 @@ class MininetSimulator(NetSimulator):
         self.link_type = TCLink
 
         self.net = None
-        # self.net = Net(switch=OVSSwitch, listenPort = 6633)
-        # self.net = Net(switch=OVSSwitch, controller=Controller)
-        # self.net = Net(controller=Controller)
+        self.result_parser = MultiThreadOutFileResultParser(FilePath.server_res_path, FilePath.client_res_path)
 
-    # simulate network for a dc
+    # simulate network for a dc, client represents CLI
     def simulate(self, controller=None, client=True, minute=1):
         # 删除上一次的测试文件
         U.del_file(FilePath.res_path)
@@ -116,7 +115,6 @@ class MininetSimulator(NetSimulator):
             net.stop()
             return
         else:
-
             net.start()
             print('*****************************************')
             print('*** NET has been successfully created ***')
@@ -124,7 +122,9 @@ class MininetSimulator(NetSimulator):
             print
 
             wait_time = 5
+            print('*****************************************')
             print('***  please wait for {} ses to start  ***'.format(wait_time))
+            print('*****************************************')
             print
             time.sleep(wait_time)
 
@@ -150,10 +150,17 @@ class MininetSimulator(NetSimulator):
             print('*****************************************')
             print
             self.set_up_udp_listener()
-
             time.sleep(2)
-            
             self.simulate_flow(minute=minute)
+            pkt_loss = self.pkt_loss()
+            if pkt_loss == -1:
+                print('*****************************************')
+                print('******     Result Parser Fail     *******')
+                print('*****************************************')
+            else:
+                print('*****************************************')
+                print('******     Total pkt loss is {}   '.format(round(pkt_loss, 4)))
+                print('*****************************************')
             net.stop()
 
     # 为所有的主机打开udp监听端口
@@ -261,5 +268,10 @@ class MininetSimulator(NetSimulator):
             status =  status and self.net.ping_hosts(hs)
         return status
 
-
+    # 计算整体丢包率
+    def pkt_loss(self):
+        try:
+            return self.result_parser.parse_server()
+        except:
+            return -1
 

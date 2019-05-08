@@ -3,7 +3,7 @@
 import os
 import re
 
-from const import FilePath
+from const import FilePath, IperfArg
 
 class ResultParser(object):
     def __init__(self):
@@ -27,6 +27,9 @@ class MultiThreadOutFileResultParser(ResultParser):
         pkt_received = 0
         pkt_sent = 0
 
+        # iperf bug for too many pkts
+        max_pkt = IperfArg.max_pkt
+
         ls = os.listdir(self.sever_path)
         for file in ls:
             if os.path.isdir(file):
@@ -36,10 +39,16 @@ class MultiThreadOutFileResultParser(ResultParser):
                 for line in raw:
                     result = re.search(pkt_loss_arg, line)
                     if result.groups():
-                        pkt_sent += result.group(1)
-                        pkt_received += result.group(2)
+                        sent = result.group(1)
+                        received = result.group(2)
+                        # 异常数据跳过
+                        if sent >= max_pkt:
+                            continue
+                        pkt_sent += sent
+                        pkt_received += received
                     else:
                         continue
         pkt_loss = pkt_sent - pkt_received / pkt_sent
-        print(pkt_loss)
+        return pkt_loss
+
 
