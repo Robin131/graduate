@@ -3,28 +3,3 @@ Server listening on UDP port 5001
 Receiving 1470 byte datagrams
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.48 port 5001 connected with 192.168.0.41 port 44837
-[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
-[  3]  0.0- 0.5 sec  2.87 KBytes  45.5 Kbits/sec  19.471 ms    0/    2 (0%)
-[  4] local 192.168.0.48 port 5001 connected with 192.168.0.41 port 44837
-[  4]  0.0- 9.1 sec  8.61 KBytes  7.78 Kbits/sec   0.000 ms 2147483639/2147483645 (0%)
-[  4] 0.00-9.06 sec  5 datagrams received out-of-order
-[  3] local 192.168.0.48 port 5001 connected with 192.168.0.55 port 58958
-[  3]  0.0- 1.0 sec  24.4 KBytes   202 Kbits/sec  23.052 ms    0/   17 (0%)
-[  4] local 192.168.0.48 port 5001 connected with 192.168.0.33 port 45357
-[  3] local 192.168.0.48 port 5001 connected with 192.168.0.30 port 53731
-[  3]  0.0- 1.5 sec  2.87 KBytes  15.4 Kbits/sec  38.208 ms   10/   12 (83%)
-[  4]  0.0- 2.1 sec  5.74 KBytes  22.9 Kbits/sec  103.436 ms   12/   16 (75%)
-[  5] local 192.168.0.48 port 5001 connected with 192.168.0.3 port 34635
-[  3] local 192.168.0.48 port 5001 connected with 192.168.0.34 port 37279
-[  5]  0.0- 3.4 sec  54.6 KBytes   133 Kbits/sec  83.296 ms   17/   55 (31%)
-[  3]  0.0- 2.0 sec  5.74 KBytes  24.1 Kbits/sec  110.810 ms    0/    4 (0%)
-[  3] 0.00-1.95 sec  1 datagrams received out-of-order
-[  4] local 192.168.0.48 port 5001 connected with 192.168.0.26 port 49220
-[  4]  0.0- 1.6 sec  15.8 KBytes  80.1 Kbits/sec  54.055 ms    7/   18 (39%)
-[  3] local 192.168.0.48 port 5001 connected with 192.168.0.66 port 37810
-[  3]  0.0- 0.5 sec  25.8 KBytes   405 Kbits/sec   8.703 ms   28/   46 (61%)
-[  5] local 192.168.0.48 port 5001 connected with 192.168.0.22 port 54016
-[  5]  0.0- 0.2 sec  2.87 KBytes   154 Kbits/sec   1.155 ms    0/    2 (0%)
-[  3] local 192.168.0.48 port 5001 connected with 192.168.0.54 port 37871
-[  3]  0.0- 1.9 sec  7.18 KBytes  30.7 Kbits/sec  98.778 ms   13/   18 (72%)

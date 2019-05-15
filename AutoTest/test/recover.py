@@ -11,8 +11,14 @@ if __name__ == '__main__':
         network = pickle.load(f)
         f.close()
 
+    print(len(network.datacenters[this_dc].hosts))
+    print(len(network.datacenters[this_dc].gateways))
+
     # drawer = TopoDrawer(network.datacenters[this_dc].dc_topo.graph)
-    # drawer.draw_switch()
+    # drawer.draw_switch_gateway()
+
+    # while(True):
+    #    continue
 
     minute = 1
     client = False

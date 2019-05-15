@@ -3,29 +3,3 @@ Server listening on UDP port 5001
 Receiving 1470 byte datagrams
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.13 port 5001 connected with 192.168.0.45 port 57305
-[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
-[  3]  0.0- 0.6 sec  5.74 KBytes  74.5 Kbits/sec  26.700 ms   38/   42 (90%)
-[  4] local 192.168.0.13 port 5001 connected with 192.168.0.42 port 48120
-[  3] local 192.168.0.13 port 5001 connected with 192.168.0.45 port 57305
-[  3]  0.0- 1.8 sec  10.0 KBytes  46.3 Kbits/sec  75.755 ms   33/   40 (82%)
-[  4]  0.0- 2.4 sec  33.0 KBytes   111 Kbits/sec  69.607 ms    0/   23 (0%)
-[  5] local 192.168.0.13 port 5001 connected with 192.168.0.45 port 57305
-[  5]  0.0- 0.3 sec  5.74 KBytes   135 Kbits/sec  14.615 ms   35/   39 (90%)
-[  3] local 192.168.0.13 port 5001 connected with 192.168.0.30 port 56592
-[  4] local 192.168.0.13 port 5001 connected with 192.168.0.57 port 38716
-[  4]  0.0- 1.0 sec  8.61 KBytes  69.8 Kbits/sec  50.735 ms    0/    6 (0%)
-[  3]  0.0- 2.3 sec  7.18 KBytes  25.2 Kbits/sec  102.905 ms   28/   33 (85%)
-[  5] local 192.168.0.13 port 5001 connected with 192.168.0.57 port 36256
-[  5]  0.0- 0.5 sec  10.0 KBytes   174 Kbits/sec  16.589 ms    0/    6 (0%)
-[  5] 0.00-0.47 sec  1 datagrams received out-of-order
-[  3] local 192.168.0.13 port 5001 connected with 192.168.0.15 port 38789
-[  3]  0.0- 0.7 sec  4.31 KBytes  52.5 Kbits/sec  33.127 ms    5/    8 (62%)
-[  4] local 192.168.0.13 port 5001 connected with 192.168.0.21 port 52375
-[  3] local 192.168.0.13 port 5001 connected with 192.168.0.48 port 60117
-[  3]  0.0- 0.1 sec  2.87 KBytes   266 Kbits/sec   1.747 ms    4/    6 (67%)
-[  5] local 192.168.0.13 port 5001 connected with 192.168.0.17 port 44751
-[  5]  0.0- 2.0 sec  12.9 KBytes  53.6 Kbits/sec  68.047 ms   15/   24 (62%)
-[  5] 0.00-1.97 sec  1 datagrams received out-of-order
-[  3] local 192.168.0.13 port 5001 connected with 192.168.0.65 port 58784
-[  3]  0.0- 0.2 sec  5.74 KBytes   193 Kbits/sec   3.982 ms    5/    9 (56%)

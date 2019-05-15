@@ -62,6 +62,6 @@ class IperfArg(object):
     max_pkt = 1000000
 
 class DrawerArgs(object):
-    switch_color = 'r'
-    gateway_color = 'b'
+    switch_color = 'b'
+    gateway_color = 'r'
     host_color = 'y'

@@ -51,7 +51,7 @@ class TopoDrawer(object):
             elif g.nodes[e[0]]['type'] == 'Gateway' and g.nodes[e[1]]['type'] == 'Gateway':
                 edges.append(e)
 
-        pos = nx.spring_layout(g)
+        pos = nx.random_layout(g)
         nx.draw_networkx_nodes(g, pos=pos, nodelist=nodes, node_color=node_color)
         nx.draw_networkx_edges(g, pos=pos, edgelist=edges)
 
