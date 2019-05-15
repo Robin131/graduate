@@ -1,36 +1,20 @@
-import re
-from AutoTest.Model.const import FilePath, IperfArg
-import os
-
+# -*- coding:utf-8 -*-
+import matplotlib.pyplot as plt
+import networkx as nx
 
 if __name__ == '__main__':
+    G = nx.Graph()
 
-    sev_path = FilePath.server_res_path
+    G.add_node('s1', type='Switch')
+    G.add_node('s2', type='Switch')
+    G.add_node('h1', type='Host')
 
-    pkt_loss_arg = r'([0-9]+)\ *\/\ *([0-9]+)'
-    pkt_received = 0
-    pkt_sent = 0
+    G.add_edge('s1', 's2')
+    G.add_edge('s1', 'h1')
 
-    # iperf bug for too many pkts
-    max_pkt = IperfArg.max_pkt
+    for n in G.nodes:
+        if G.nodes[n]['type'] == 'Switch':
+            print n
 
-    ls = os.listdir(sev_path)
-    for file in ls:
-        if os.path.isdir(file):
-            continue
-        file = sev_path + '/' + file
-        with open(file, 'r') as f:
-            raw = f.readlines()
-            for line in raw:
-                result = re.search(pkt_loss_arg, line)
-                if result:
-                    received = int(result.group(1))
-                    sent = int(result.group(2))
-                    if sent >= max_pkt:
-                        continue
-                    pkt_sent += sent
-                    pkt_received += received
-                else:
-                    continue
-    pkt_loss = (pkt_sent - pkt_received) / float(pkt_sent)
-    print(pkt_loss)
+    for e in G.edges:
+        print e[0], e[1]
