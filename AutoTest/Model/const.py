@@ -59,4 +59,8 @@ class FilePath(object):
 
 class IperfArg(object):
     max_pkt = 1000000
-    
+
+class DrawerArgs(object):
+    switch_color = 'r'
+    gateway_color = 'b'
+    host_color = 'y'

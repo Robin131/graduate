@@ -133,6 +133,7 @@ class FatTreeTopo(DC_Topo):
                 self.edge_switch[i].add_inner_connect(hosts[h_index], bw=0)
 
         # connect gateways
+        self.graph.add_nodes_from(self.gateways, type='Gateway')
         for s in self.switches:
             for g in self.gateways:
                 self.add_inner_link(s, g, bw=0)
@@ -180,6 +181,7 @@ class FullMeshTopo(DC_Topo):
                 i += 1
 
         # connect gateways
+        self.graph.add_nodes_from(self.gateways, type='Gateway')
         for s in self.switches:
             for g in self.gateways:
                 self.add_inner_link(s, g, bw=0)
