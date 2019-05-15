@@ -3,35 +3,6 @@ Server listening on UDP port 5001
 Receiving 1470 byte datagrams
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.36 port 5001 connected with 192.168.0.31 port 58874
+[  3] local 10.0.0.29 port 5001 connected with 10.0.0.238 port 45459
 [ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
-[  3]  0.0- 0.7 sec  14.4 KBytes   171 Kbits/sec  25.580 ms    0/   10 (0%)
-[  4] local 192.168.0.36 port 5001 connected with 192.168.0.7 port 60622
-[  4]  0.0- 1.7 sec  14.4 KBytes  70.9 Kbits/sec  63.252 ms    0/   10 (0%)
-[  3] local 192.168.0.36 port 5001 connected with 192.168.0.30 port 49072
-[  3]  0.0- 1.5 sec  50.2 KBytes   274 Kbits/sec  20.145 ms    0/   35 (0%)
-[  4] local 192.168.0.36 port 5001 connected with 192.168.0.14 port 60178
-[  4]  0.0- 1.5 sec  23.0 KBytes   126 Kbits/sec  48.873 ms    0/   16 (0%)
-[  5] local 192.168.0.36 port 5001 connected with 192.168.0.50 port 42774
-[  3] local 192.168.0.36 port 5001 connected with 192.168.0.21 port 50484
-[  5]  0.0- 2.9 sec  15.8 KBytes  44.9 Kbits/sec  132.603 ms   13/   24 (54%)
-[  5] 0.00-2.88 sec  1 datagrams received out-of-order
-[  6] local 192.168.0.36 port 5001 connected with 192.168.0.43 port 46028
-[  6]  0.0- 5.1 sec  77.5 KBytes   124 Kbits/sec  70.963 ms   59/  113 (52%)
-[  4] local 192.168.0.36 port 5001 connected with 192.168.0.5 port 42072
-[  5] local 192.168.0.36 port 5001 connected with 192.168.0.57 port 52450
-[  6] local 192.168.0.36 port 5001 connected with 192.168.0.33 port 54744
-[  5]  0.0- 0.8 sec  41.6 KBytes   444 Kbits/sec  11.691 ms    7/   36 (19%)
-[  7] local 192.168.0.36 port 5001 connected with 192.168.0.32 port 55021
-[  6]  0.0- 2.8 sec  15.8 KBytes  46.6 Kbits/sec  89.840 ms    4/   15 (27%)
-[  7]  0.0- 1.9 sec  5.74 KBytes  24.9 Kbits/sec  102.803 ms 2147483643/2147483647 (1e+02%)
-[  7] 0.00-1.89 sec  3 datagrams received out-of-order
-[  8] local 192.168.0.36 port 5001 connected with 192.168.0.58 port 55578
-[  5] local 192.168.0.36 port 5001 connected with 192.168.0.12 port 38242
-[  6] local 192.168.0.36 port 5001 connected with 192.168.0.4 port 43197
-[  5]  0.0- 0.4 sec  4.31 KBytes  94.8 Kbits/sec  13.311 ms    6/    9 (67%)
-[  8]  0.0- 0.7 sec  18.7 KBytes   229 Kbits/sec  18.222 ms    0/   13 (0%)
-[  6]  0.0- 3.5 sec  23.0 KBytes  53.3 Kbits/sec  153.997 ms   33/   49 (67%)
-[  7] local 192.168.0.36 port 5001 connected with 192.168.0.64 port 37179
-[  5] local 192.168.0.36 port 5001 connected with 192.168.0.56 port 60449
-[  5]  0.0- 0.7 sec  15.8 KBytes   182 Kbits/sec  23.332 ms   43/   54 (80%)
+[  3]  0.0- 1.2 sec  28.7 KBytes   204 Kbits/sec  32.159 ms    0/   20 (0%)

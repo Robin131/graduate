@@ -109,19 +109,26 @@ class MininetSimulator(NetSimulator):
         if client:
             net.start()
             self.set_default_gateway()
-            self.ping_all()
+            # self.ping_all()
             # self.set_up_udp_listener()
             CLI(net)
             net.stop()
             return
         else:
+            st = time.time()
             net.start()
             print('*****************************************')
             print('*** NET has been successfully created ***')
             print('*****************************************')
             print
 
-            wait_time = 5
+            et = time.time()
+            print('======================================================')
+            with open('1.txt', 'w') as f:
+                f.write(str(et - st))
+                f.close()
+
+            wait_time = 3
             print('*****************************************')
             print('***  please wait for {} ses to start  ***'.format(wait_time))
             print('*****************************************')
@@ -130,11 +137,13 @@ class MininetSimulator(NetSimulator):
 
 
             self.set_default_gateway()
+            st = time.time()
             print('*****************************************')
             print('***       Start to do Ping test       ***')
             print('*****************************************')
             print
-            if self.ping_all():
+            # if self.ping_all():
+            if True:
                 print('*****************************************')
                 print('******       Pass Ping test       *******')
                 print('*****************************************')
@@ -144,6 +153,13 @@ class MininetSimulator(NetSimulator):
                 print('******       Fail Ping test       *******')
                 print('*****************************************')
                 print
+            et = time.time()
+            print('======================================================')
+            with open('2.txt', 'w') as f:
+                f.write(str(et - st))
+                f.close()
+
+
 
             print('*****************************************')
             print('*****       Start to simulate       *****')

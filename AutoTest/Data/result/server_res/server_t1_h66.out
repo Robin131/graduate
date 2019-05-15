@@ -3,24 +3,3 @@ Server listening on UDP port 5001
 Receiving 1470 byte datagrams
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.46 port 5001 connected with 192.168.0.31 port 38761
-[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
-[  3]  0.0- 0.3 sec  1.44 KBytes  38.2 Kbits/sec   0.000 ms   15/   16 (94%)
-[  4] local 192.168.0.46 port 5001 connected with 192.168.0.31 port 38761
-[  4]  0.0- 0.1 sec  1.44 KBytes   196 Kbits/sec   0.000 ms   12/   13 (92%)
-[  3] local 192.168.0.46 port 5001 connected with 192.168.0.48 port 37730
-[  4] local 192.168.0.46 port 5001 connected with 192.168.0.38 port 47861
-[  4]  0.0- 1.9 sec  25.8 KBytes   114 Kbits/sec  61.784 ms    0/   18 (0%)
-[  3]  0.0- 4.1 sec  10.0 KBytes  19.9 Kbits/sec  202.821 ms    0/    7 (0%)
-[  5] local 192.168.0.46 port 5001 connected with 192.168.0.48 port 37730
-[  3] local 192.168.0.46 port 5001 connected with 192.168.0.64 port 37985
-[  3]  0.0- 5.4 sec  53.1 KBytes  80.4 Kbits/sec  97.326 ms    9/   46 (20%)
-[  4] local 192.168.0.46 port 5001 connected with 192.168.0.10 port 37619
-[  4]  0.0- 1.0 sec  7.18 KBytes  61.4 Kbits/sec  34.465 ms    0/    5 (0%)
-[  3] local 192.168.0.46 port 5001 connected with 192.168.0.10 port 37619
-[  4] local 192.168.0.46 port 5001 connected with 192.168.0.65 port 49655
-[  4]  0.0- 0.7 sec  1.44 KBytes  17.6 Kbits/sec   0.000 ms    8/    9 (89%)
-[  6] local 192.168.0.46 port 5001 connected with 192.168.0.61 port 48679
-[  6]  0.0- 0.7 sec  33.0 KBytes   400 Kbits/sec   9.955 ms    0/   23 (0%)
-[  3]  0.0-90.3 sec  2.87 KBytes   260 bits/sec   0.000 ms 2147483644/2147483646 (0%)
-[  3] 0.00-90.30 sec  1 datagrams received out-of-order

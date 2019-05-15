@@ -3,28 +3,3 @@ Server listening on UDP port 5001
 Receiving 1470 byte datagrams
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.39 port 5001 connected with 192.168.0.6 port 58921
-[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
-[  3]  0.0- 0.4 sec  4.31 KBytes  82.4 Kbits/sec  10.710 ms   14/   17 (82%)
-[  4] local 192.168.0.39 port 5001 connected with 192.168.0.6 port 58921
-[  4]  0.0- 1.9 sec  10.0 KBytes  44.1 Kbits/sec  66.624 ms   11/   18 (61%)
-[  4] 0.00-1.87 sec  1 datagrams received out-of-order
-[  3] local 192.168.0.39 port 5001 connected with 192.168.0.42 port 54723
-[  4] local 192.168.0.39 port 5001 connected with 192.168.0.47 port 41456
-[  4]  0.0- 0.4 sec  5.74 KBytes   119 Kbits/sec   9.178 ms    2/    6 (33%)
-[  5] local 192.168.0.39 port 5001 connected with 192.168.0.47 port 41456
-[  4] local 192.168.0.39 port 5001 connected with 192.168.0.31 port 47175
-[  4]  0.0- 0.8 sec  23.0 KBytes   231 Kbits/sec  18.121 ms    7/   23 (30%)
-[  6] local 192.168.0.39 port 5001 connected with 192.168.0.51 port 39169
-[  6]  0.0- 3.8 sec  14.4 KBytes  31.1 Kbits/sec  204.777 ms   60/   70 (86%)
-[  4] local 192.168.0.39 port 5001 connected with 192.168.0.51 port 39169
-[  4]  0.0- 0.8 sec  2.87 KBytes  29.7 Kbits/sec   8.071 ms   62/   64 (97%)
-[  6] local 192.168.0.39 port 5001 connected with 192.168.0.51 port 39169
-[  6]  0.0- 1.5 sec  10.0 KBytes  54.9 Kbits/sec  53.918 ms   66/   73 (90%)
-[  4] local 192.168.0.39 port 5001 connected with 192.168.0.60 port 33678
-[  4]  0.0- 1.4 sec  58.9 KBytes   349 Kbits/sec  16.925 ms    0/   40 (0%)
-[  4] 0.00-1.38 sec  1 datagrams received out-of-order
-[  6] local 192.168.0.39 port 5001 connected with 192.168.0.55 port 60011
-[  6]  0.0- 0.1 sec  5.74 KBytes   474 Kbits/sec   3.081 ms    6/   10 (60%)
-[  4] local 192.168.0.39 port 5001 connected with 192.168.0.56 port 59958
-[  4]  0.0- 0.6 sec  21.5 KBytes   293 Kbits/sec  15.272 ms    0/   15 (0%)
