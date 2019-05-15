@@ -56,6 +56,7 @@ class FilePath(object):
     res_path = '../Data/result'
     server_res_path = '../Data/result/server_res'
     client_res_path = '../Data/result/client_res'
+    pkt_loss_fig_path = '../Data/result/pkt_loss'
 
 class IperfArg(object):
     max_pkt = 1000000
