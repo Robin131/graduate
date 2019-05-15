@@ -1,0 +1,51 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.43 port 41301
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.0 sec  4.31 KBytes  1.30 Mbits/sec  25.222 ms   38/   41 (93%)
+[  4] local 192.168.0.14 port 5001 connected with 192.168.0.43 port 41301
+[  4]  0.0- 0.2 sec  25.8 KBytes  1.04 Mbits/sec  73.219 ms   21/   39 (54%)
+[  4] 0.00-0.20 sec  4 datagrams received out-of-order
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.43 port 41301
+[  3]  0.0- 0.0 sec  5.74 KBytes  1.04 Mbits/sec   0.685 ms   40/   44 (91%)
+[  4] local 192.168.0.14 port 5001 connected with 192.168.0.31 port 45329
+[  4]  0.0- 0.0 sec  1.44 KBytes   400 Kbits/sec   0.000 ms    1/    2 (50%)
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.9 port 41010
+[  3]  0.0- 0.1 sec  20.1 KBytes  1.17 Mbits/sec   4.490 ms    0/   14 (0%)
+[  3] 0.00-0.14 sec  1 datagrams received out-of-order
+[  5] local 192.168.0.14 port 5001 connected with 192.168.0.31 port 45329
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.44 port 59891
+[  3]  0.0- 0.0 sec  5.74 KBytes  1.17 Mbits/sec   0.005 ms    1/    5 (20%)
+[  4] local 192.168.0.14 port 5001 connected with 192.168.0.11 port 34029
+[  4]  0.0- 0.3 sec  11.5 KBytes   360 Kbits/sec   8.489 ms    0/    8 (0%)
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.34 port 46129
+[  3]  0.0- 0.6 sec  12.9 KBytes   169 Kbits/sec  22.322 ms   18/   27 (67%)
+[  5]  0.0-12.0 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  6] local 192.168.0.14 port 5001 connected with 192.168.0.34 port 41006
+[  6]  0.0- 2.4 sec  4.31 KBytes  14.9 Kbits/sec  10.213 ms    0/    3 (0%)
+[  7] local 192.168.0.14 port 5001 connected with 192.168.0.34 port 41006
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.53 port 36545
+[  3]  0.0- 0.0 sec  1.44 KBytes  1.24 Mbits/sec   0.000 ms    2/    3 (67%)
+[  4] local 192.168.0.14 port 5001 connected with 192.168.0.54 port 33873
+[  4]  0.0- 0.5 sec  15.8 KBytes   247 Kbits/sec  18.491 ms    0/   11 (0%)
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.49 port 53803
+[  3]  0.0- 1.1 sec  15.8 KBytes   115 Kbits/sec  37.173 ms   19/   30 (63%)
+[  5] local 192.168.0.14 port 5001 connected with 192.168.0.7 port 55222
+[  5]  0.0- 0.8 sec   119 KBytes  1.24 Mbits/sec   7.208 ms    0/   83 (0%)
+[  5] 0.00-0.78 sec  13 datagrams received out-of-order
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.34 port 60676
+[  4] local 192.168.0.14 port 5001 connected with 192.168.0.15 port 36490
+[  3]  0.0-16.8 sec  11.5 KBytes  5.60 Kbits/sec   0.000 ms    0/    8 (0%)
+[  3] 0.00-16.79 sec  1 datagrams received out-of-order
+[  4]  0.0- 0.2 sec  2.87 KBytes   110 Kbits/sec   4.310 ms    6/    8 (75%)
+[  5] local 192.168.0.14 port 5001 connected with 192.168.0.42 port 60759
+[  5]  0.0- 0.4 sec  58.9 KBytes  1.15 Mbits/sec   1.969 ms    0/   41 (0%)
+[  5] 0.00-0.42 sec  3 datagrams received out-of-order
+[  6] local 192.168.0.14 port 5001 connected with 192.168.0.16 port 34505
+[  6]  0.0- 0.0 sec  4.31 KBytes   739 Kbits/sec   1.513 ms    0/    3 (0%)
+[  3] local 192.168.0.14 port 5001 connected with 192.168.0.3 port 53958
+[  3]  0.0- 0.1 sec  23.0 KBytes  1.66 Mbits/sec  13.446 ms    0/   16 (0%)
+[  3] 0.00-0.11 sec  5 datagrams received out-of-order

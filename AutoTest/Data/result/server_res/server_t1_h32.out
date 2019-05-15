@@ -1,0 +1,26 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.18 port 5001 connected with 10.0.0.31 port 47956
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.0 sec  4.31 KBytes  1.28 Mbits/sec   0.004 ms   21/   24 (88%)
+[  4] local 10.0.0.18 port 5001 connected with 10.0.0.31 port 47956
+[  4]  0.0- 0.2 sec  11.5 KBytes   603 Kbits/sec  18.845 ms   14/   22 (64%)
+[  4] 0.00-0.16 sec  1 datagrams received out-of-order
+[  3] local 10.0.0.18 port 5001 connected with 10.0.0.24 port 50133
+[  3]  0.0- 0.1 sec  4.31 KBytes   539 Kbits/sec   1.577 ms    4/    7 (57%)
+[  4] local 10.0.0.18 port 5001 connected with 10.0.0.24 port 50133
+[  4]  0.0-10.2 sec  1.44 KBytes  1.16 Kbits/sec   0.000 ms 2147483645/2147483646 (0%)
+[  3] local 10.0.0.18 port 5001 connected with 10.0.0.29 port 53871
+[  3]  0.0- 0.6 sec  5.74 KBytes  81.5 Kbits/sec  27.340 ms    3/    7 (43%)
+[  4] local 10.0.0.18 port 5001 connected with 10.0.0.11 port 54640
+[  4]  0.0- 0.6 sec  23.0 KBytes   290 Kbits/sec  25.292 ms   23/   39 (59%)
+[  4] 0.00-0.65 sec  1 datagrams received out-of-order
+[  3] local 10.0.0.18 port 5001 connected with 10.0.0.41 port 41684
+[  3]  0.0- 0.1 sec  4.31 KBytes   360 Kbits/sec   6.710 ms    6/    9 (67%)
+[  3] 0.00-0.10 sec  1 datagrams received out-of-order
+[  4] local 10.0.0.18 port 5001 connected with 10.0.0.8 port 52882
+[  5] local 10.0.0.18 port 5001 connected with 10.0.0.29 port 42204
+[  5]  0.0- 0.7 sec  24.4 KBytes   300 Kbits/sec  17.511 ms    0/   17 (0%)

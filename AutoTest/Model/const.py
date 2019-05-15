@@ -16,6 +16,7 @@ class TenantPriority(object):
     LOW = 1,
     HIGH = 2
 
+# 8 Mbit = 1MB
 class LinkBandWidth(object):
     host_switch_bw = 10
     switch_switch_bw = 10

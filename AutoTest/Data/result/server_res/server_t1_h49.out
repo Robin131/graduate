@@ -1,0 +1,61 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.24 port 5001 connected with 10.0.0.10 port 60771
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.2 sec  4.31 KBytes   235 Kbits/sec   7.911 ms 2147483642/2147483645 (1e+02%)
+[  3] 0.00-0.15 sec  2 datagrams received out-of-order
+[  4] local 10.0.0.24 port 5001 connected with 10.0.0.19 port 57342
+[  5] local 10.0.0.24 port 5001 connected with 10.0.0.15 port 39883
+[  4]  0.0- 0.1 sec  8.61 KBytes   900 Kbits/sec  15.669 ms   16/   22 (73%)
+[  5]  0.0- 0.2 sec  14.4 KBytes   711 Kbits/sec  54.643 ms   47/   57 (82%)
+[  5] 0.00-0.17 sec  2 datagrams received out-of-order
+[  6] local 10.0.0.24 port 5001 connected with 10.0.0.19 port 57342
+[  6]  0.0- 0.0 sec  1.44 KBytes   617 Kbits/sec   0.000 ms   20/   21 (95%)
+[  4] local 10.0.0.24 port 5001 connected with 10.0.0.15 port 39883
+[  4]  0.0- 0.1 sec  11.5 KBytes   927 Kbits/sec  24.249 ms   48/   56 (86%)
+[  5] local 10.0.0.24 port 5001 connected with 10.0.0.15 port 39883
+[  5]  0.0- 0.2 sec  11.5 KBytes   502 Kbits/sec  14.345 ms   46/   54 (85%)
+[  4] local 10.0.0.24 port 5001 connected with 10.0.0.15 port 39883
+[  4]  0.0- 0.1 sec  8.61 KBytes  1.12 Mbits/sec   1.144 ms   55/   61 (90%)
+[  3] local 10.0.0.24 port 5001 connected with 10.0.0.27 port 36559
+[  3]  0.0- 0.4 sec  17.2 KBytes   331 Kbits/sec  20.657 ms    0/   12 (0%)
+[  3] 0.00-0.43 sec  1 datagrams received out-of-order
+[  4] local 10.0.0.24 port 5001 connected with 10.0.0.42 port 59970
+[  4]  0.0- 0.1 sec  8.61 KBytes   712 Kbits/sec  14.379 ms    6/   12 (50%)
+[  4] 0.00-0.10 sec  1 datagrams received out-of-order
+[  5] local 10.0.0.24 port 5001 connected with 10.0.0.14 port 52254
+[  5]  0.0- 0.0 sec  2.87 KBytes   718 Kbits/sec   0.668 ms    2/    4 (50%)
+[  6] local 10.0.0.24 port 5001 connected with 10.0.0.14 port 52254
+[  3] local 10.0.0.24 port 5001 connected with 10.0.0.42 port 41807
+[  3]  0.0- 2.1 sec  94.7 KBytes   363 Kbits/sec  24.278 ms   55/  121 (45%)
+[  3] 0.00-2.14 sec  9 datagrams received out-of-order
+[  6]  0.0-14.6 sec  0.00 Bytes  0.00 bits/sec   0.000 ms    0/    0 (0%)
+[  4] local 10.0.0.24 port 5001 connected with 10.0.0.21 port 44437
+[  4]  0.0- 0.3 sec  11.5 KBytes   275 Kbits/sec  18.124 ms    0/    8 (0%)
+[  4] 0.00-0.34 sec  2 datagrams received out-of-order
+[  3] local 10.0.0.24 port 5001 connected with 10.0.0.21 port 56081
+[  3]  0.0- 3.6 sec  86.1 KBytes   197 Kbits/sec  21.796 ms   38/   98 (39%)
+[  3] 0.00-3.58 sec  2 datagrams received out-of-order
+[  5] local 10.0.0.24 port 5001 connected with 10.0.0.15 port 35661
+[  5]  0.0- 0.2 sec  4.31 KBytes   171 Kbits/sec  13.285 ms   13/   16 (81%)
+[  6] local 10.0.0.24 port 5001 connected with 10.0.0.14 port 39859
+[  3] local 10.0.0.24 port 5001 connected with 10.0.0.22 port 34406
+[  3]  0.0- 0.1 sec  8.61 KBytes   534 Kbits/sec   4.909 ms    0/    6 (0%)
+[  3] 0.00-0.13 sec  1 datagrams received out-of-order
+[  6]  0.0- 0.6 sec  5.74 KBytes  78.9 Kbits/sec  32.130 ms    1/    5 (20%)
+[  6] 0.00-0.60 sec  1 datagrams received out-of-order
+[  4] local 10.0.0.24 port 5001 connected with 10.0.0.38 port 53430
+[  4]  0.0- 1.2 sec  10.0 KBytes  67.8 Kbits/sec  63.231 ms    5/   12 (42%)
+[  4] 0.00-1.21 sec  1 datagrams received out-of-order
+[  3] local 10.0.0.24 port 5001 connected with 10.0.0.15 port 33899
+[  3]  0.0- 0.2 sec  1.44 KBytes  74.0 Kbits/sec   0.000 ms    7/    8 (88%)
+[  5] local 10.0.0.24 port 5001 connected with 10.0.0.31 port 56317
+[  5]  0.0- 1.6 sec  11.5 KBytes  60.5 Kbits/sec  87.812 ms    0/    7 (0%)
+[  5] 0.00-1.56 sec  3 datagrams received out-of-order
+[  6] local 10.0.0.24 port 5001 connected with 10.0.0.11 port 60930
+[  6]  0.0- 0.1 sec  14.4 KBytes  1.17 Mbits/sec   0.020 ms    0/   10 (0%)
+[  3] local 10.0.0.24 port 5001 connected with 10.0.0.20 port 48905
+[  3]  0.0- 0.9 sec  5.74 KBytes  52.6 Kbits/sec  44.418 ms    5/    9 (56%)

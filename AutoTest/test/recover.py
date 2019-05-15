@@ -11,6 +11,7 @@ if __name__ == '__main__':
         network = pickle.load(f)
         f.close()
 
+
     minute = 1
     client = False
 
