@@ -3,7 +3,7 @@ import sys
 sys.path.append('../..')
 
 from AutoTest.Model.Network import pickle_file, config_dic
-
+from AutoTest.Model.TopoDrawer import TopoDrawer
 
 if __name__ == '__main__':
     this_dc = 1
@@ -11,6 +11,8 @@ if __name__ == '__main__':
         network = pickle.load(f)
         f.close()
 
+    # drawer = TopoDrawer(network.datacenters[this_dc].dc_topo.graph)
+    # drawer.draw_switch()
 
     minute = 1
     client = False

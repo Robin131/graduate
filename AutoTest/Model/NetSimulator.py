@@ -161,6 +161,7 @@ class MininetSimulator(NetSimulator):
                 print('*****************************************')
                 print('******     Total pkt loss is {}   '.format(round(pkt_loss, 4)))
                 print('*****************************************')
+            CLI(net)
             net.stop()
 
     # 为所有的主机打开udp监听端口

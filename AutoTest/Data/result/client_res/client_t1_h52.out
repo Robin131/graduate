@@ -1,258 +1,198 @@
 ------------------------------------------------------------
-Client connecting to 192.168.0.9, UDP port 5001
+Client connecting to 10.0.0.33, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 60683 connected with 192.168.0.9 port 5001
+[  3] local 10.0.0.15 port 39075 connected with 10.0.0.33 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.2 sec  25.8 KBytes  1.05 Mbits/sec
-[  3] Sent 18 datagrams
+[  3]  0.0- 0.6 sec  73.2 KBytes  1.05 Mbits/sec
+[  3] Sent 51 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.7, UDP port 5001
+Client connecting to 10.0.0.31, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 45992 connected with 192.168.0.7 port 5001
+[  3] local 10.0.0.15 port 38040 connected with 10.0.0.31 port 5001
 ------------------------------------------------------------
-Client connecting to 192.168.0.49, UDP port 5001
+Client connecting to 10.0.0.7, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 56694 connected with 192.168.0.49 port 5001
+[  3] local 10.0.0.15 port 35841 connected with 10.0.0.7 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  11.5 KBytes  1.05 Mbits/sec
+[  3] Sent 8 datagrams
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.6 sec  74.6 KBytes  1.05 Mbits/sec
+[  3] Sent 52 datagrams
+------------------------------------------------------------
+Client connecting to 10.0.0.11, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.15 port 47772 connected with 10.0.0.11 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.2 sec  20.1 KBytes  1.05 Mbits/sec
+[  3] Sent 14 datagrams
+------------------------------------------------------------
+Client connecting to 10.0.0.32, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.15 port 57683 connected with 10.0.0.32 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  7.18 KBytes  1.05 Mbits/sec
+[  3] Sent 5 datagrams
+------------------------------------------------------------
+Client connecting to 10.0.0.25, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.15 port 54274 connected with 10.0.0.25 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.2 sec  30.1 KBytes  1.05 Mbits/sec
+[  3] Sent 21 datagrams
+------------------------------------------------------------
+Client connecting to 10.0.0.19, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.15 port 53350 connected with 10.0.0.19 port 5001
+------------------------------------------------------------
+Client connecting to 10.0.0.36, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.15 port 39049 connected with 10.0.0.36 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 0.1 sec  15.8 KBytes  1.05 Mbits/sec
+[  3] Sent 11 datagrams
 [ ID] Interval       Transfer     Bandwidth
 [  3]  0.0- 0.1 sec  17.2 KBytes  1.05 Mbits/sec
 [  3] Sent 12 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.19, UDP port 5001
+Client connecting to 10.0.0.24, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 38222 connected with 192.168.0.19 port 5001
+[  3] local 10.0.0.15 port 36298 connected with 10.0.0.24 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.1 sec  12.9 KBytes  1.05 Mbits/sec
-[  3] Sent 9 datagrams
-[  3] Server Report:
-[  3]  0.0- 0.0 sec  10.0 KBytes  1.80 Mbits/sec   0.000 ms    2/    9 (0%)
-[  3] 0.00-0.05 sec  2 datagrams received out-of-order
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 1.6 sec   205 KBytes  1.05 Mbits/sec
-[  3] Sent 143 datagrams
+[  3]  0.0- 0.1 sec  7.18 KBytes  1.05 Mbits/sec
+[  3] Sent 5 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.3, UDP port 5001
+Client connecting to 10.0.0.30, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 51212 connected with 192.168.0.3 port 5001
+[  3] local 10.0.0.15 port 50850 connected with 10.0.0.30 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.0 sec  4.31 KBytes  1.05 Mbits/sec
-[  3] Sent 3 datagrams
+[  3]  0.0- 0.1 sec  17.2 KBytes  1.05 Mbits/sec
+[  3] Sent 12 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.7, UDP port 5001
+Client connecting to 10.0.0.23, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 40087 connected with 192.168.0.7 port 5001
+[  3] local 10.0.0.15 port 34549 connected with 10.0.0.23 port 5001
 [ ID] Interval       Transfer     Bandwidth
 [  3]  0.0- 0.1 sec  18.7 KBytes  1.05 Mbits/sec
 [  3] Sent 13 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.53, UDP port 5001
+Client connecting to 10.0.0.16, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 34705 connected with 192.168.0.53 port 5001
+[  3] local 10.0.0.15 port 52009 connected with 10.0.0.16 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.1 sec  8.61 KBytes  1.05 Mbits/sec
-[  3] Sent 6 datagrams
+[  3]  0.0- 0.3 sec  38.8 KBytes  1.05 Mbits/sec
+[  3] Sent 27 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.3, UDP port 5001
+Client connecting to 10.0.0.8, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 52455 connected with 192.168.0.3 port 5001
-------------------------------------------------------------
-Client connecting to 192.168.0.34, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 46891 connected with 192.168.0.34 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.2 sec  25.8 KBytes  1.05 Mbits/sec
-[  3] Sent 18 datagrams
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.3 sec  35.9 KBytes  1.05 Mbits/sec
-[  3] Sent 25 datagrams
-------------------------------------------------------------
-Client connecting to 192.168.0.32, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 54041 connected with 192.168.0.32 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.4 sec  48.8 KBytes  1.05 Mbits/sec
-[  3] Sent 34 datagrams
-[  3] Server Report:
-[  3]  0.0- 0.2 sec  48.8 KBytes  1.70 Mbits/sec   0.000 ms    0/   34 (0%)
-[  3] 0.00-0.23 sec  13 datagrams received out-of-order
-------------------------------------------------------------
-Client connecting to 192.168.0.7, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 41436 connected with 192.168.0.7 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.5 sec  58.9 KBytes  1.05 Mbits/sec
-[  3] Sent 41 datagrams
-------------------------------------------------------------
-Client connecting to 192.168.0.53, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 46548 connected with 192.168.0.53 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 1.0 sec   134 KBytes  1.05 Mbits/sec
-[  3] Sent 93 datagrams
-------------------------------------------------------------
-Client connecting to 192.168.0.9, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 56345 connected with 192.168.0.9 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.3 sec  34.5 KBytes  1.05 Mbits/sec
-[  3] Sent 24 datagrams
-------------------------------------------------------------
-Client connecting to 192.168.0.19, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 35340 connected with 192.168.0.19 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.0 sec  4.31 KBytes  1.06 Mbits/sec
-[  3] Sent 3 datagrams
-------------------------------------------------------------
-Client connecting to 192.168.0.11, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 41502 connected with 192.168.0.11 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.4 sec  51.7 KBytes  1.05 Mbits/sec
-[  3] Sent 36 datagrams
-------------------------------------------------------------
-Client connecting to 192.168.0.31, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 43340 connected with 192.168.0.31 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.4 sec  50.2 KBytes  1.05 Mbits/sec
-[  3] Sent 35 datagrams
-[  3] Server Report:
-[  3]  0.0- 0.4 sec  50.2 KBytes  1.15 Mbits/sec   0.000 ms    0/   35 (0%)
-[  3] 0.00-0.36 sec  3 datagrams received out-of-order
-------------------------------------------------------------
-Client connecting to 192.168.0.15, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 54768 connected with 192.168.0.15 port 5001
+[  3] local 10.0.0.15 port 37327 connected with 10.0.0.8 port 5001
 [ ID] Interval       Transfer     Bandwidth
 [  3]  0.0- 0.2 sec  28.7 KBytes  1.05 Mbits/sec
 [  3] Sent 20 datagrams
-[  3] Server Report:
-[  3]  0.0- 0.2 sec  28.7 KBytes  1.13 Mbits/sec   0.000 ms    0/   20 (0%)
-[  3] 0.00-0.21 sec  1 datagrams received out-of-order
 ------------------------------------------------------------
-Client connecting to 192.168.0.42, UDP port 5001
+Client connecting to 10.0.0.7, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 56407 connected with 192.168.0.42 port 5001
+[  3] local 10.0.0.15 port 43746 connected with 10.0.0.7 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.2 sec  31.6 KBytes  1.05 Mbits/sec
-[  3] Sent 22 datagrams
+[  3]  0.0- 0.0 sec  5.74 KBytes  1.05 Mbits/sec
+[  3] Sent 4 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.33, UDP port 5001
+Client connecting to 10.0.0.14, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 44767 connected with 192.168.0.33 port 5001
+[  3] local 10.0.0.15 port 60396 connected with 10.0.0.14 port 5001
+------------------------------------------------------------
+Client connecting to 10.0.0.4, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.15 port 59471 connected with 10.0.0.4 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.3 sec  34.5 KBytes  1.05 Mbits/sec
-[  3] Sent 24 datagrams
-[  3] Server Report:
-[  3]  0.0- 0.2 sec  34.5 KBytes  1.33 Mbits/sec   0.000 ms    0/   24 (0%)
-[  3] 0.00-0.21 sec  5 datagrams received out-of-order
-------------------------------------------------------------
-Client connecting to 192.168.0.57, UDP port 5001
-Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
-UDP buffer size:  208 KByte (default)
-------------------------------------------------------------
-[  3] local 192.168.0.29 port 36147 connected with 192.168.0.57 port 5001
+[  3]  0.0- 0.2 sec  27.3 KBytes  1.05 Mbits/sec
+[  3] Sent 19 datagrams
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.2 sec  20.1 KBytes  1.05 Mbits/sec
-[  3] Sent 14 datagrams
-[  3] Server Report:
-[  3]  0.0- 0.1 sec  20.1 KBytes  1.13 Mbits/sec   0.000 ms    0/   14 (0%)
-[  3] 0.00-0.15 sec  1 datagrams received out-of-order
+[  3]  0.0- 0.6 sec  73.2 KBytes  1.05 Mbits/sec
+[  3] Sent 51 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.31, UDP port 5001
+Client connecting to 10.0.0.34, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 59897 connected with 192.168.0.31 port 5001
+[  3] local 10.0.0.15 port 54531 connected with 10.0.0.34 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.1 sec  14.4 KBytes  1.05 Mbits/sec
-[  3] Sent 10 datagrams
-[  3] Server Report:
-[  3]  0.0- 0.1 sec  14.4 KBytes  1.30 Mbits/sec   0.000 ms    0/   10 (0%)
-[  3] 0.00-0.09 sec  1 datagrams received out-of-order
+[  3]  0.0- 0.1 sec  17.2 KBytes  1.05 Mbits/sec
+[  3] Sent 12 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.19, UDP port 5001
+Client connecting to 10.0.0.27, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 47880 connected with 192.168.0.19 port 5001
+[  3] local 10.0.0.15 port 57390 connected with 10.0.0.27 port 5001
 [ ID] Interval       Transfer     Bandwidth
 [  3]  0.0- 0.1 sec  11.5 KBytes  1.05 Mbits/sec
 [  3] Sent 8 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.34, UDP port 5001
+Client connecting to 10.0.0.30, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 51404 connected with 192.168.0.34 port 5001
+[  3] local 10.0.0.15 port 60805 connected with 10.0.0.30 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.0 sec  4.31 KBytes  1.05 Mbits/sec
-[  3] Sent 3 datagrams
+[  3]  0.0- 0.1 sec  17.2 KBytes  1.05 Mbits/sec
+[  3] Sent 12 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.43, UDP port 5001
+Client connecting to 10.0.0.24, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 46857 connected with 192.168.0.43 port 5001
+[  3] local 10.0.0.15 port 54051 connected with 10.0.0.24 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 1.6 sec   208 KBytes  1.05 Mbits/sec
-[  3] Sent 145 datagrams
+[  3]  0.0- 0.1 sec  17.2 KBytes  1.05 Mbits/sec
+[  3] Sent 12 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.15, UDP port 5001
+Client connecting to 10.0.0.4, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 49853 connected with 192.168.0.15 port 5001
+[  3] local 10.0.0.15 port 50601 connected with 10.0.0.4 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0- 1.9 sec   243 KBytes  1.05 Mbits/sec
+[  3] Sent 169 datagrams
 ------------------------------------------------------------
-Client connecting to 192.168.0.11, UDP port 5001
+Client connecting to 10.0.0.2, UDP port 5001
 Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
 UDP buffer size:  208 KByte (default)
 ------------------------------------------------------------
-[  3] local 192.168.0.29 port 58118 connected with 192.168.0.11 port 5001
+[  3] local 10.0.0.15 port 57575 connected with 10.0.0.2 port 5001
 [ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 0.8 sec   106 KBytes  1.05 Mbits/sec
-[  3] Sent 74 datagrams
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 1.8 sec   234 KBytes  1.05 Mbits/sec
-[  3] Sent 163 datagrams
-[  3] Server Report:
-[  3]  0.0- 1.8 sec   234 KBytes  1.07 Mbits/sec   0.000 ms    0/  163 (0%)
-[  3] 0.00-1.79 sec  3 datagrams received out-of-order
+[  3]  0.0- 0.4 sec  47.4 KBytes  1.05 Mbits/sec
+[  3] Sent 33 datagrams

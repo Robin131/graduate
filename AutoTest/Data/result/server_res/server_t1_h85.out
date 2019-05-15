@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 10.0.0.31 port 5001 connected with 10.0.0.34 port 46539
+[  4] local 10.0.0.31 port 5001 connected with 10.0.0.5 port 60654
+[  5] local 10.0.0.31 port 5001 connected with 10.0.0.14 port 42386

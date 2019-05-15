@@ -1,0 +1,29 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.0.24 port 5001 connected with 192.168.0.6 port 40333
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 0.0 sec  1.44 KBytes  4.34 Mbits/sec   0.000 ms  147/  148 (99%)
+[  4] local 192.168.0.24 port 5001 connected with 192.168.0.6 port 40333
+[  4]  0.0- 0.0 sec  1.44 KBytes  3.61 Mbits/sec   0.000 ms  143/  144 (99%)
+[  3] local 192.168.0.24 port 5001 connected with 192.168.0.6 port 40333
+[  3]  0.0- 7.8 sec   192 KBytes   201 Kbits/sec  54.318 ms   17/  151 (11%)
+[  4] local 192.168.0.24 port 5001 connected with 192.168.0.54 port 59975
+[  4]  0.0- 1.0 sec  10.0 KBytes  81.1 Kbits/sec  52.726 ms    0/    6 (0%)
+[  4] 0.00-1.01 sec  1 datagrams received out-of-order
+[  3] local 192.168.0.24 port 5001 connected with 192.168.0.58 port 49344
+[  3]  0.0- 1.5 sec  10.0 KBytes  54.0 Kbits/sec  61.468 ms   12/   19 (63%)
+[  4] local 192.168.0.24 port 5001 connected with 192.168.0.47 port 53458
+[  4]  0.0- 0.9 sec  7.18 KBytes  66.4 Kbits/sec  32.558 ms    3/    8 (38%)
+[  3] local 192.168.0.24 port 5001 connected with 192.168.0.61 port 35136
+[  3]  0.0- 0.7 sec  41.6 KBytes   487 Kbits/sec   8.647 ms    0/   29 (0%)
+[  4] local 192.168.0.24 port 5001 connected with 192.168.0.57 port 34597
+[  4]  0.0- 0.3 sec  11.5 KBytes   372 Kbits/sec   7.843 ms   20/   28 (71%)
+[  5] local 192.168.0.24 port 5001 connected with 192.168.0.44 port 53797
+[  5]  0.0- 1.6 sec  33.0 KBytes   169 Kbits/sec  42.600 ms   50/   73 (68%)
+[  3] local 192.168.0.24 port 5001 connected with 192.168.0.44 port 40662
+[  3]  0.0- 0.9 sec  11.5 KBytes  99.7 Kbits/sec  33.119 ms    8/   16 (50%)
+[  4] local 192.168.0.24 port 5001 connected with 192.168.0.65 port 33437
+[  4]  0.0- 0.3 sec  7.18 KBytes   196 Kbits/sec  10.639 ms   18/   23 (78%)

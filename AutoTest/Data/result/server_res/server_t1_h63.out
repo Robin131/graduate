@@ -1,0 +1,29 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.0.43 port 5001 connected with 192.168.0.40 port 44660
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 2.1 sec  7.18 KBytes  28.6 Kbits/sec  81.630 ms   24/   29 (83%)
+[  4] local 192.168.0.43 port 5001 connected with 192.168.0.22 port 44189
+[  4]  0.0- 2.0 sec  27.3 KBytes   113 Kbits/sec  62.145 ms   57/   76 (75%)
+[  5] local 192.168.0.43 port 5001 connected with 192.168.0.22 port 56607
+[  5]  0.0- 0.9 sec  63.2 KBytes   585 Kbits/sec  13.175 ms   19/   63 (30%)
+[  3] local 192.168.0.43 port 5001 connected with 192.168.0.15 port 44623
+[  3]  0.0- 4.0 sec  41.6 KBytes  84.5 Kbits/sec  117.469 ms   26/   55 (47%)
+[  4] local 192.168.0.43 port 5001 connected with 192.168.0.45 port 51920
+[  3] local 192.168.0.43 port 5001 connected with 192.168.0.42 port 52227
+[  5] local 192.168.0.43 port 5001 connected with 192.168.0.56 port 47248
+[  5]  0.0- 3.3 sec  1.44 KBytes  3.60 Kbits/sec   0.000 ms    3/    4 (0%)
+[  6] local 192.168.0.43 port 5001 connected with 192.168.0.62 port 41165
+[  6]  0.0- 1.2 sec  18.7 KBytes   128 Kbits/sec  44.612 ms    8/   21 (38%)
+[  5] local 192.168.0.43 port 5001 connected with 192.168.0.56 port 35327
+[  7] local 192.168.0.43 port 5001 connected with 192.168.0.65 port 42781
+[  7]  0.0- 0.4 sec  4.31 KBytes  82.5 Kbits/sec  19.029 ms    1/    4 (25%)
+[  5]  0.0- 3.4 sec  43.1 KBytes   104 Kbits/sec  98.720 ms   20/   50 (40%)
+[  6] local 192.168.0.43 port 5001 connected with 192.168.0.65 port 42781
+[  5] local 192.168.0.43 port 5001 connected with 192.168.0.62 port 53455
+[  5]  0.0- 0.1 sec  5.74 KBytes   384 Kbits/sec  14.872 ms   18/   22 (82%)
+[  6]  0.0-40.4 sec  4.31 KBytes   873 bits/sec   0.000 ms 2147483643/2147483646 (0%)
+[  6] 0.00-40.40 sec  2 datagrams received out-of-order

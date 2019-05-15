@@ -1,0 +1,16 @@
+------------------------------------------------------------
+Server listening on UDP port 5001
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.0.7 port 5001 connected with 192.168.0.63 port 33037
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  3]  0.0- 1.2 sec  38.8 KBytes   255 Kbits/sec  26.037 ms    0/   27 (0%)
+[  4] local 192.168.0.7 port 5001 connected with 192.168.0.63 port 46438
+[  4]  0.0- 1.6 sec  90.4 KBytes   469 Kbits/sec  12.226 ms    0/   63 (0%)
+[  3] local 192.168.0.7 port 5001 connected with 192.168.0.56 port 36200
+[  3]  0.0- 0.2 sec  8.61 KBytes   286 Kbits/sec   8.445 ms    0/    6 (0%)
+[  4] local 192.168.0.7 port 5001 connected with 192.168.0.32 port 44634
+[  4]  0.0- 0.8 sec  24.4 KBytes   241 Kbits/sec  19.010 ms   17/   34 (50%)
+[  3] local 192.168.0.7 port 5001 connected with 192.168.0.61 port 55389
+[  3]  0.0- 0.5 sec  25.8 KBytes   396 Kbits/sec  10.367 ms    0/   18 (0%)
